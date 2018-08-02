@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+
 @RestController
 public class Rest 
 {
@@ -19,5 +20,14 @@ public class Rest
 		String url = "http://SERVICE1/test";
 		String data = restTemplate.getForObject(url, String.class);
 		return data;
+	}
+	
+	@Autowired
+	Client client;
+	@RequestMapping("/test1")
+	public String test1()
+	{
+		ClientBean bean = client.test();
+		return bean.getCode();
 	}
 }
