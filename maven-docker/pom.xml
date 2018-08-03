@@ -65,7 +65,6 @@
 						<resource>
 							<targetPath>/lib</targetPath>
 							<directory>${project.build.directory}/lib</directory>
-							<include>*.jar</include>
 						</resource>						
 					</resources>
 				</configuration>
