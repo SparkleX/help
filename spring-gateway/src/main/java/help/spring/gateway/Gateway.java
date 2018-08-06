@@ -26,23 +26,6 @@ import org.springframework.web.reactive.config.EnableWebFlux;
 public class Gateway  
 {
 
-	/*@Bean
-	public ServerCodecConfigurer codec()
-	{
-		return new DefaultServerCodecConfigurer();
-	}*/
-	/*@Bean
-	WebServerFactory server()
-	{
-		//return new NettyReactiveWebServerFactory();
-		return new NettyReactiveWebServerFactory();
-	}
-	@Bean
-	ServletWebServerFactory aa()
-	{
-		return new TomcatServletWebServerFactory ();
-	}*/
-	
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
@@ -59,10 +42,8 @@ public class Gateway
 
     public static void main(String[] args) 
     {
-		System.setProperty("spring.config.name", "gateway");
-        ApplicationContext appCtx = SpringApplication.run(Gateway.class, args);
-     //   Object o = appCtx.getBean(ServerCodecConfigurer.class);
-      //  System.out.println(o);
+        SpringApplication.run(Gateway.class, args);
+
     }
 
 }
