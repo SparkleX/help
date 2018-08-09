@@ -9,5 +9,6 @@
   <packaging>pom</packaging>
   <modules>
   	<module>spring-hystrix</module>
+  	<module>spring-hystrix-dashboard</module>
   </modules>
 </project>
