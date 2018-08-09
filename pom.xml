@@ -46,5 +46,6 @@
 		<module>spring-swagger</module>
 		<module>spring-transaction</module>
 		<module>tomcat-embed</module>
+		<module>spring-cloud</module>
 	</modules>	
 </project>
