@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 //@EnableCircuitBreaker
 @EnableDiscoveryClient
 @RestController
-public class App 
+public class Service1App 
 {
 	
 	@RequestMapping("/test")
@@ -35,6 +35,6 @@ public class App
     {
     	guid = UUID.randomUUID().toString();
     	System.setProperty("eureka.instance.instance-id",guid);
-    	SpringApplication.run(App.class, args);
+    	SpringApplication.run(Service1App.class, args);
     }
 }

@@ -1,0 +1,8 @@
+<configuration>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+  <encoder class="ch.qos.logback.access.PatternLayoutEncoder">
+    <pattern>%clientHost %l %user %date "%r" %statusCode %bytesSent</pattern>
+  </encoder>
+  </appender>
+  <appender-ref ref="STDOUT" />
+</configuration>

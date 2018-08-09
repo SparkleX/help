@@ -47,5 +47,6 @@
 		<module>spring-transaction</module>
 		<module>tomcat-embed</module>
 		<module>spring-cloud</module>
+		<module>spring-tomcat-log</module>
 	</modules>	
 </project>
