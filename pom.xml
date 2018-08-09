@@ -27,4 +27,24 @@
 			</plugin>
 		</plugins>
 	</build>
+	<modules>
+		<module>jpa-hibernate-nativequery</module>
+		<module>maven-docker</module>
+		<module>mybatis</module>
+		<module>netty</module>
+		<module>spring-aliasfor</module>
+		<module>spring-aop</module>
+		<module>spring-cloud-eureka</module>
+		<module>spring-feign</module>
+		<module>spring-gateway</module>
+		<module>spring-jdbc</module>
+		<module>spring-jpa</module>
+		<module>spring-kafka</module>
+		<module>spring-multicontext</module>
+		<module>spring-mybatis</module>
+		<module>spring-requestmapping</module>
+		<module>spring-swagger</module>
+		<module>spring-transaction</module>
+		<module>tomcat-embed</module>
+	</modules>	
 </project>
