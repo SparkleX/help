@@ -10,5 +10,6 @@
   <modules>
   	<module>spring-hystrix</module>
   	<module>spring-hystrix-dashboard</module>
+  	<module>spring-zuul</module>
   </modules>
 </project>
