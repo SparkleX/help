@@ -6,13 +6,9 @@
     <artifactId>spring-help</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>spring-cloud</artifactId>
+  <artifactId>java-lang</artifactId>
   <packaging>pom</packaging>
   <modules>
-  	<module>spring-hystrix</module>
-  	<module>spring-hystrix-dashboard</module>
-  	<module>spring-zuul</module>
-    <module>spring-config</module>
-    <module>spring-config-client</module>
+    <module>java-lambda</module>
   </modules>
 </project>
