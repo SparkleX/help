@@ -49,5 +49,6 @@
 		<module>spring-tomcat-log</module>
     <module>ttt</module>
     <module>java-lang</module>
+    <module>spring-security</module>
 	</modules>	
 </project>
