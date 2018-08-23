@@ -11,5 +11,6 @@
   <modules>
     <module>spring-oauth-server</module>
     <module>spring-oauth-resource</module>
+    <module>spring-oauth-sso</module>
   </modules>
 </project>
