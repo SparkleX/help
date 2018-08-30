@@ -41,7 +41,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<maimClass>log.Test</maimClass>
+					<maimClass>log.SpringBootApp</maimClass>
 				</configuration>
 				<executions>
 					<execution>
