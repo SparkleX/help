@@ -6,10 +6,9 @@
     <artifactId>spring-help</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>java-lang</artifactId>
+  <artifactId>maven</artifactId>
   <packaging>pom</packaging>
   <modules>
-    <module>java-lambda</module>
-    <module>log</module>
+    <module>maven-docker</module>
   </modules>
 </project>
