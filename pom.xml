@@ -50,5 +50,6 @@
     <module>ttt</module>
     <module>java-lang</module>
     <module>spring-security</module>
+    <module>help-jackson</module>
 	</modules>	
 </project>
