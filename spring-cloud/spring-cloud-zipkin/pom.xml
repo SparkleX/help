@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>help</groupId>
+		<artifactId>spring-cloud</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>spring-cloud-zipkin</artifactId>
+	<dependencies>
+<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-eureka -->
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-eureka</artifactId>
+    <version>1.4.5.RELEASE</version>
+</dependency>
+
+		
+<!-- https://mvnrepository.com/artifact/io.zipkin.java/zipkin-autoconfigure-ui -->
+<dependency>
+    <groupId>io.zipkin.java</groupId>
+    <artifactId>zipkin-autoconfigure-ui</artifactId>
+    <version>2.0.1</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/io.zipkin.java/zipkin-server -->
+<dependency>
+    <groupId>io.zipkin.java</groupId>
+    <artifactId>zipkin-server</artifactId>
+    <version>2.0.1</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/io.prometheus/simpleclient_hotspot 
+<dependency>
+    <groupId>io.prometheus</groupId>
+    <artifactId>simpleclient_hotspot</artifactId>
+    <version>0.5.0</version>
+</dependency>
+<dependency>
+    <groupId>org.jboss.xnio</groupId>
+    <artifactId>xnio-all</artifactId>
+    <version>3.6.5.Final</version>
+    <type>pom</type>
+</dependency>-->
+
+
+
+	</dependencies>
+</project>
