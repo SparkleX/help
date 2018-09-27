@@ -29,5 +29,10 @@
 		</dependency>
 
 
+		<dependency>
+			<groupId>help</groupId>
+			<artifactId>spring-cloud-service-share</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>

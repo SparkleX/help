@@ -18,5 +18,6 @@
     <module>spring-cloud-service1</module>
     <module>spring-cloud-service2</module>
     <module>spring-cloud-eureka-server</module>
+    <module>spring-cloud-service-share</module>
   </modules>
 </project>
