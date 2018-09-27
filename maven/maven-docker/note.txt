@@ -1,0 +1,8 @@
+apt update
+apt install nginx
+docker commit c3f279d17e0a  b1/java-nginx:v1
+docker tag 06039a6f2c2d nj
+
+docker save -o java-nginx.tar ng
+gzip java-nginx.tar
+docker load -i java-nginx.tar
