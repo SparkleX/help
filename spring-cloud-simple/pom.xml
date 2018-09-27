@@ -11,5 +11,6 @@
   	<module>spring-cloud-simple-service1</module>
   	<module>spring-cloud-simple-service2</module>
   	<module>spring-cloud-simple-service-share</module>
+  	<module>spring-cloud-simple-zipkin</module>
   </modules>
 </project>
