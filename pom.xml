@@ -51,5 +51,6 @@
     <module>java-lang</module>
     <module>spring-security</module>
     <module>help-jackson</module>
+    <module>help-log</module>
 	</modules>	
 </project>

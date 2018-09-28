@@ -6,7 +6,7 @@
 	<groupId>help</groupId>
 	<artifactId>maven-docker</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<name>maven-docker</name>
 	<url>http://maven.apache.org</url>
@@ -14,75 +14,9 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	<build>
-		<plugins>
-		 <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>help.App</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-	
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-dependency-plugin</artifactId>
-			<version>3.1.1</version>
-			<executions>
-				<execution>
-					<id>copy-dependencies</id>
-					<phase>package</phase>
-					<goals>
-						<goal>copy-dependencies</goal>
-					</goals>
-					<configuration>
-						<outputDirectory>${project.build.directory}/lib</outputDirectory>
-					</configuration>
-				</execution>
-			</executions>
-		</plugin>
-			<plugin>
-				<groupId>com.spotify</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<version>1.1.1</version>
-				<configuration>
-					<imageName>docker-maven</imageName>
-					<baseImage>java</baseImage>
-					<entryPoint>["java", "-jar","/${project.build.finalName}.jar"]</entryPoint>
-					<resources>
-						<resource>
-							<targetPath>/</targetPath>
-							<directory>${project.build.directory}</directory>
-							<include>${project.build.finalName}.jar</include>
-						</resource>
-						<resource>
-							<targetPath>/lib</targetPath>
-							<directory>${project.build.directory}/lib</directory>
-						</resource>						
-					</resources>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<version>2.0.3.RELEASE</version>
-		</dependency>	
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+	<modules>
+		<module>maven-docker-simple</module>
+		<module>maven-docker-dockerfile</module>
+	</modules>
 </project>
