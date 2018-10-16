@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
 //java -Dspring.profiles.active=dev -jar spring-profile-0.0.1-SNAPSHOT.jar
-
+//java -jar spring-profile-0.0.1-SNAPSHOT.jar--welcome.message
 
 @SpringBootApplication
 @Component
