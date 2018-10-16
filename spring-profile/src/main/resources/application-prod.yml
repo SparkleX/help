@@ -1,0 +1,3 @@
+welcome.message: Hello-Production
+server:
+  port: 9999
