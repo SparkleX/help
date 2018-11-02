@@ -1,0 +1,26 @@
+yum install -y maven
+mvn -v
+
+https://www.sonatype.com/download-oss-sonatype
+
+tar -zxvf nexus-3.13.0-01-unix.tar.gz -C /usr/local/
+cd /usr/local/nexus-3.13.0-01/bin
+./nexus start
+./nexus status
+
+service firewalld stop
+firewall-cmd --zone=public --add-port=8081/tcp --permanent
+
+
+// Run as Service
+NEXUS_HOME="/opt/nexus"
+
+?bin/nexus.rc 
+?run_as_user="nexus"
+
+sudo ln -s $NEXUS_HOME/bin/nexus /etc/init.d/nexus
+
+cd /etc/init.d
+sudo chkconfig --add nexus
+sudo chkconfig --levels 345 nexus on
+sudo service nexus start

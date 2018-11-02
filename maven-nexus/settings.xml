@@ -1,0 +1,22 @@
+<settings>
+<servers>
+	<server>   
+		<id>maven-releases</id>   
+		<username>test</username>
+		<password>test</password>   
+	</server>
+	<server>   
+		<id>maven-snapshots</id>   
+		<username>test</username>
+		<password>test</password>   
+	</server>
+</servers>
+	<mirrors>
+		<mirror>
+			<id>nexus</id>
+			<name>nexus central</name>
+			<url>http://1.1.1.53:8081/repository/maven-public/</url>
+			<mirrorOf>*</mirrorOf>
+		</mirror>
+	</mirrors>
+</settings>
