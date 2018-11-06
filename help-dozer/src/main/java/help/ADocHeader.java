@@ -1,6 +1,8 @@
 package help;
 
-public class BeanA 
+import java.util.List;
+
+public class ADocHeader 
 {
 	public String getCode() {
 		return code;
@@ -23,4 +25,12 @@ public class BeanA
 		this.type = type;
 	}
 	protected BeanType type;
+	
+	public List<ADocLine> getLines() {
+		return lines;
+	}
+	public void setLines(List<ADocLine> lines) {
+		this.lines = lines;
+	}
+	protected List<ADocLine> lines;
 }

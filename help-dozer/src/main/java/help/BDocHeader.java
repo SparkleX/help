@@ -1,6 +1,8 @@
 package help;
 
-public class BeanB 
+import java.util.List;
+
+public class BDocHeader extends BDocBase
 {
 	public String getCodeB() {
 		return codeB;
@@ -23,4 +25,6 @@ public class BeanB
 		this.type = type;
 	}
 	Integer type;
+
+
 }
