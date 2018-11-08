@@ -53,5 +53,7 @@
     <module>help-jackson</module>
     <module>help-log</module>
     <module>spring-profile</module>
+    <module>help-jpa</module>
+    <module>help-bean-mapper</module>
 	</modules>	
 </project>
