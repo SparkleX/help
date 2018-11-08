@@ -1,0 +1,9 @@
+spring:
+  main:
+    web-environment: false
+    
+mq:
+  host: 127.0.0.1
+  username: admin
+  password: admin
+  port: 5672

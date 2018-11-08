@@ -10,5 +10,7 @@
   <packaging>pom</packaging>
   <modules>
   	<module>help-rabbitmq-sender</module>
+  	<module>help-spring-queue-send</module>
+  	<module>help-spring-queue-recv</module>
   </modules>
 </project>
