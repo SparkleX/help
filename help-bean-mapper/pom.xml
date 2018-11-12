@@ -10,5 +10,6 @@
   <packaging>pom</packaging>
   <modules>
   	<module>help-dozer-annotation</module>
+  	<module>help-mapstruct</module>
   </modules>
 </project>
