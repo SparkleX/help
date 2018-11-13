@@ -10,8 +10,8 @@ public interface BeanAAddressMapper
 {
 	BeanAAddressMapper MAPPER = Mappers.getMapper( BeanAAddressMapper.class );
     @Mapping(source = "addr", target = "addr")
-    BeanBLine toBeanAAddress(BeanAAddress a);
+    BeanBLine toBean(BeanAAddress a);
 
     @InheritInverseConfiguration
-    BeanAAddress fromBeanB(BeanBLine a);
+    BeanAAddress fromBean(BeanBLine a);
 }

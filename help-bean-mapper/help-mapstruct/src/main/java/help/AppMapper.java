@@ -2,7 +2,6 @@ package help;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class AppMapper 
 {
