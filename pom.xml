@@ -55,5 +55,6 @@
     <module>spring-profile</module>
     <module>help-jpa</module>
     <module>help-bean-mapper</module>
+    <module>spring-cloud-gateway</module>
 	</modules>	
 </project>
