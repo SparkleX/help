@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ApplicationContext;
 
+//https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-feign.html
 
 @SpringBootApplication
 @EnableFeignClients
