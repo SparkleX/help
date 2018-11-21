@@ -56,5 +56,6 @@
     <module>help-jpa</module>
     <module>help-bean-mapper</module>
     <module>spring-cloud-gateway</module>
+    <module>help-feign</module>
 	</modules>	
 </project>
