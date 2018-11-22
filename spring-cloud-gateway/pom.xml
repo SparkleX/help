@@ -12,6 +12,7 @@
 	<modules>
 		<module>spring-cloud-gateway-route</module>
 		<module>spring-cloud-gateway-backend</module>
+		<module>spring-cloud-gateway-static</module>
 	</modules>
 
 
