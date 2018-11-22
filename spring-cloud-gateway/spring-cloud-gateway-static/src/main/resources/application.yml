@@ -3,8 +3,11 @@ server:
 logging:
   level:
     org.springframework.web.reactive.DispatcherHandler: DEBUG
-       
-       
+spring:
+  resources:
+    static-locations: 
+    - classpath:/static
+    - file:../spring-cloud-gateway-static
 ---
 spring:
   profiles: dev       

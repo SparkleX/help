@@ -15,7 +15,7 @@ public class AppGate
 {
 	public static void main(String[] args)
 	{
-		System.setProperty("spring.profiles.active", "dev");
+		System.setProperty("spring.profiles.active", "default,dev");
         SpringApplication.run(AppGate.class, args);
 	}
 }
