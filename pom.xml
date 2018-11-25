@@ -58,5 +58,8 @@
     <module>spring-cloud-gateway</module>
     <module>help-feign</module>
     <module>help-lang-generic</module>
+    <module>help-http2</module>
+    <module>help-spring-async</module>
+    <module>spring-async</module>
 	</modules>	
 </project>
