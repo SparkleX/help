@@ -3,9 +3,11 @@ server:
   servlet:
     context-path: /test  
   
+  
 management:
   endpoints:
     web:
+      base-path: /manage
       exposure:
-        include: beans,mappings
+       include: beans,mappings
         
