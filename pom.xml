@@ -61,5 +61,6 @@
     <module>help-http2</module>
     <module>help-spring-async</module>
     <module>spring-async</module>
+    <module>spring-actuator</module>
 	</modules>	
 </project>

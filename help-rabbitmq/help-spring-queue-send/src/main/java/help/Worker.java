@@ -1,7 +1,5 @@
 package help;
 
-import java.util.UUID;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -25,13 +23,11 @@ public class Worker
 	@Scheduled(cron = "*/5 * * * * ?")
 	public void run() 
 	{
-		for(int i =0;i<=100;i++)
-		{
-			MessageBody mb = new MessageBody();
-			mb.id = a++;
-			mb.body = UUID.randomUUID().toString();
-			//System.out.println(a);
-			rabbitTemplate.convertAndSend("test",mb);
-		}
+		MessageBody mb = new MessageBody();
+		mb.id = a++;
+		mb.body = Integer.toString(a);
+		System.out.println(a);
+		rabbitTemplate.convertAndSend("test",mb);
+		//System.out.println(test);
 	}	
 }

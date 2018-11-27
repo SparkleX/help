@@ -3,6 +3,6 @@ spring:
     web-environment: false
   rabbitmq:
     host: 127.0.0.1
-    username: guest
-    password: 1234
+    username: admin
+    password: admin
     port: 5672

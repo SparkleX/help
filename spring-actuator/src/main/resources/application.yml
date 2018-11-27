@@ -1,0 +1,11 @@
+server:
+  port: 80
+  servlet:
+    context-path: /test  
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: beans,mappings
+        

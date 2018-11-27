@@ -12,7 +12,7 @@ public class QueueConfig
 	@Bean
 	public Queue documentQueue()
 	{
-		return new Queue("test");
+		return new Queue("test",true);
 	}
 	@Bean
     public MessageConverter jsonMessageConverter()

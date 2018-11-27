@@ -15,9 +15,11 @@ public class MQReceiver
   
     @RabbitHandler
     //@RabbitListener(queues = "test", containerFactory="rabbitListenerContainerFactory")
-    public void process(@Payload MessageBody request) 
+    public String process(@Payload MessageBody request) 
     {
     	logger.info("{}",Thread.currentThread().getId());
         logger.info("->" + request.id + " - "+request.body);
+        //throw new RuntimeException("runtime");
+        return "HelloWorld";
     }
 }
