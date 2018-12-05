@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>help</groupId>
@@ -12,6 +14,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
 	</properties>
 	<build>
 		<plugins>
@@ -26,6 +29,63 @@
 			</plugin>
 		</plugins>
 	</build>
+	<dependencyManagement>
+		<dependencies>
+			<!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct-jdk8 -->
+			<dependency>
+				<groupId>org.mapstruct</groupId>
+				<artifactId>mapstruct-jdk8</artifactId>
+				<version>${org.mapstruct.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/junit/junit -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.12</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-test</artifactId>
+				<version>2.1.1.RELEASE</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter</artifactId>
+				<version>2.1.1.RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<version>2.1.1.RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>com.microsoft.sqlserver</groupId>
+				<artifactId>mssql-jdbc</artifactId>
+				<version>6.4.0.jre8</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-jpa</artifactId>
+				<version>2.1.1.RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-jpa</artifactId>
+				<version>2.0.6.RELEASE</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+			<dependency>
+				<groupId>com.microsoft.sqlserver</groupId>
+				<artifactId>mssql-jdbc</artifactId>
+				<version>6.4.0.jre8</version>
+			</dependency>			
+		</dependencies>
+	</dependencyManagement>
 	<modules>
 		<module>jpa-hibernate-nativequery</module>
 		<module>maven-docker</module>
@@ -47,20 +107,20 @@
 		<module>tomcat-embed</module>
 		<module>spring-cloud</module>
 		<module>spring-tomcat-log</module>
-    <module>ttt</module>
-    <module>java-lang</module>
-    <module>spring-security</module>
-    <module>help-jackson</module>
-    <module>help-log</module>
-    <module>spring-profile</module>
-    <module>help-jpa</module>
-    <module>help-bean-mapper</module>
-    <module>spring-cloud-gateway</module>
-    <module>help-feign</module>
-    <module>help-lang-generic</module>
-    <module>help-http2</module>
-    <module>help-spring-async</module>
-    <module>spring-async</module>
-    <module>spring-actuator</module>
-	</modules>	
+		<module>ttt</module>
+		<module>java-lang</module>
+		<module>spring-security</module>
+		<module>help-jackson</module>
+		<module>help-log</module>
+		<module>spring-profile</module>
+		<module>help-jpa</module>
+		<module>help-bean-mapper</module>
+		<module>spring-cloud-gateway</module>
+		<module>help-feign</module>
+		<module>help-lang-generic</module>
+		<module>help-http2</module>
+		<module>help-spring-async</module>
+		<module>spring-async</module>
+		<module>spring-actuator</module>
+	</modules>
 </project>

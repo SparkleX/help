@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;DatabaseName=US03
+    username: sa
+    password: Initial0
+    hikari:
+      maximumPoolSize: 3
+    initialization-mode: always
