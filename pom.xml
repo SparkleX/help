@@ -122,5 +122,6 @@
 		<module>help-spring-async</module>
 		<module>spring-async</module>
 		<module>spring-actuator</module>
+		<module>spring</module>
 	</modules>
 </project>
