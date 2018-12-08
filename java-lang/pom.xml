@@ -11,5 +11,6 @@
   <modules>
     <module>java-lambda</module>
     <module>log</module>
+    <module>bean-reflect</module>
   </modules>
 </project>
