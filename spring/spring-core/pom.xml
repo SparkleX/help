@@ -10,5 +10,6 @@
   <modules>
   	<module>spring-autowire-generic</module>
   	<module>bean-scope</module>
+  	<module>resource-loader</module>
   </modules>
 </project>
