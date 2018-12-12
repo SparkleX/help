@@ -9,5 +9,6 @@
   <packaging>pom</packaging>
   <modules>
   	<module>quick-jpa-impl</module>
+  	<module>jpa-hibernate</module>
   </modules>
 </project>
