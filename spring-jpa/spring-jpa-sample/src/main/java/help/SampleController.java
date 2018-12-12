@@ -24,6 +24,10 @@ public class SampleController
 	@RequestMapping("/find/{id}")
 	public List<Customer> find(@PathVariable Integer id)
 	{
-		return service.find(id);
+		Customer entity = new Customer();
+		entity.id = 100;
+		service.daoCustomer.save(entity );
+		//return service.find(id);
+		return null;
 	}
 }

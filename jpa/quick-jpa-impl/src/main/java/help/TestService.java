@@ -3,8 +3,8 @@ package help;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import help.model.MoOITM;
@@ -16,6 +16,7 @@ public class TestService
 	@Autowired
 	RepoOITM repoOITM;
 	
+	@Transactional
 	@GetMapping(path="/test")
 	public List<MoOITM> test()
 	{

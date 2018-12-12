@@ -17,9 +17,59 @@ import javax.persistence.criteria.CriteriaDelete;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.metamodel.Metamodel;
-@SuppressWarnings("rawtypes")
-public class QuickEntityManager implements EntityManager {
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+@SuppressWarnings("rawtypes")
+public class QuickEntityManager implements EntityManager 
+{
+
+	Logger logger = LoggerFactory.getLogger(QuickEntityManager.class);
+	QuickEntityManager()
+	{
+		logger.info("QuickEntityManager");
+	}
+	
+	@Override
+	public Query createNamedQuery(String name) 
+	{
+		logger.info("createNamedQuery {}", this);
+		return new QuickQuery(name);
+		
+	}
+	@Override
+	public Query createNativeQuery(String sql, Class resultClass) 
+	{
+		logger.info("createNativeQuery {}", this);
+		return new QuickQuery(sql, resultClass);
+		
+	}
+	@Override
+	public boolean isOpen() 
+	{
+		
+		logger.info("close {}", this);
+		return true;
+	}
+	
+
+	@Override
+	public void close() 
+	{
+		logger.info("close {}", this);
+	}
+	
+	QuickEntityTransaction transaction;
+	@Override
+	public EntityTransaction getTransaction() 
+	{
+		if(transaction==null)
+		{
+			transaction = new QuickEntityTransaction();
+		}
+		return transaction;
+		
+	}
 	@Override
 	public void persist(Object entity) {
 		throw new RuntimeException("NOT IMPLEMENTED");
@@ -180,11 +230,7 @@ public class QuickEntityManager implements EntityManager {
 		
 	}
 
-	@Override
-	public Query createNamedQuery(String name) {
-		return new QuickQuery(name);
-		
-	}
+
 
 	@Override
 	public <T> TypedQuery<T> createNamedQuery(String name, Class<T> resultClass) {
@@ -198,11 +244,7 @@ public class QuickEntityManager implements EntityManager {
 		
 	}
 
-	@Override
-	public Query createNativeQuery(String sql, Class resultClass) {
-		return new QuickQuery(sql, resultClass);
-		
-	}
+
 
 	@Override
 	public Query createNativeQuery(String sqlString, String resultSetMapping) {
@@ -257,23 +299,10 @@ public class QuickEntityManager implements EntityManager {
 		
 	}
 
-	@Override
-	public void close() 
-	{
 
 
-	}
 
-	@Override
-	public boolean isOpen() {
-		throw new RuntimeException("NOT IMPLEMENTED");
-	}
 
-	@Override
-	public EntityTransaction getTransaction() {
-		throw new RuntimeException("NOT IMPLEMENTED");
-		
-	}
 
 	@Override
 	public EntityManagerFactory getEntityManagerFactory() {
