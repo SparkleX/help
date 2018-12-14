@@ -10,5 +10,7 @@
   <modules>
   	<module>quick-jpa-impl</module>
   	<module>jpa-hibernate</module>
+  	<module>jpa-eclipselink</module>
+  	<module>jpa-eclipselink-tenant</module>
   </modules>
 </project>
