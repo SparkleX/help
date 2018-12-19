@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<note xmlns="urn:test:test">
+	<to>Tove</to>
+	<from>Jani</from>
+	<heading>Reminder</heading>
+	<body>Don't forget me this weekend!</body>
+</note>
