@@ -175,5 +175,6 @@
 		<module>spring</module>
 		<module>spring-database</module>
 		<module>xml</module>
+		<module>mock</module>
 	</modules>
 </project>
