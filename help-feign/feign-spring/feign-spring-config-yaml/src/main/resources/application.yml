@@ -1,0 +1,11 @@
+url: http://www.sina.com.cn
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: full
+
+logging.level.help: DEBUG
+        

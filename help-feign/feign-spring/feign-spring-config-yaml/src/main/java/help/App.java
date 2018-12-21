@@ -17,7 +17,7 @@ public class App {
 		ServiceA service = appContext.getBean(ServiceA.class);
 		
 		service.call("123");
-
+		appContext.getBean(ServiceB.class);
 	}
 
 }
