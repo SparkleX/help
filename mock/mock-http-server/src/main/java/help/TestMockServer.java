@@ -13,15 +13,16 @@ public class TestMockServer
 	{
 		ConfigurationProperties.overrideLogLevel("ERROR");
 		
-		ClientAndServer mockServer = ClientAndServer.startClientAndServer(8080);
+		ClientAndServer mockServer = ClientAndServer.startClientAndServer(443);
 		
-		mockServer.when(request().withMethod("GET").withPath("/test"))
+		
+		mockServer.when(request().withSecure(true).withMethod("GET").withPath("/test"))
 				.respond(response().withStatusCode(200)
 						.withHeaders(new Header("Content-Type", "application/json; charset=utf-8"),
 								new Header("Cache-Control", "public, max-age=86400"))
-						.withBody("test"));
+						.withBody("{\"a\":1,\"b\":2}"));
 		
-		mockServer.when(request().withMethod("GET").withPath("/aaaa"))
+		mockServer.when(request().withSecure(true).withMethod("GET").withPath("/aaaa"))
 				.respond(response().withStatusCode(200)
 						.withHeaders(new Header("Content-Type", "application/json; charset=utf-8"),
 								new Header("Cache-Control", "public, max-age=86400"))

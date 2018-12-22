@@ -11,5 +11,6 @@
   	<module>feign-spring-config</module>
   	<module>feign-spring-config-yaml</module>
   	<module>feign-spring-huge</module>
+  	<module>feign-spring-throughput</module>
   </modules>
 </project>

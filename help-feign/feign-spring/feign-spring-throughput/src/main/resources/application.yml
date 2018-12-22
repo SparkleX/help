@@ -1,0 +1,8 @@
+server:
+  port: 8081
+  
+feign:
+  httpclient:
+    disableSslValidation: true
+  
+url: https://localhost
