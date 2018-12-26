@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;DatabaseName=TEST
+    username: sa
+    password: 12345678
+    hikari:
+      maximumPoolSize: 300
+    initialization-mode: always
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+logging:
+  level:
+    root: INFO
+    com.sap.olingo: DEBUG
+    org.apache.olingo: DEBUG
