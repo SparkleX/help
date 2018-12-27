@@ -2,14 +2,14 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>help</groupId>
-    <artifactId>spring-help</artifactId>
+    <artifactId>odata</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>odata</artifactId>
+  <artifactId>odata2-olingo</artifactId>
   <packaging>pom</packaging>
   <modules>
-  	<module>odata-jpa</module>
-  	<module>odata-olingo-server</module>
-  	<module>odata2-olingo</module>
+  	<module>odata2-olingo-server</module>
+  	<module>odata2-olingo-joa</module>
+  	<module>odata2-olingo-server-jpa</module>
   </modules>
 </project>

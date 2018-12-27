@@ -7,7 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import help.model.OCRD;
+/*import help.model.OCRD;
 import help.model.Order;
 @Service
 @Transactional
@@ -25,7 +25,7 @@ public class InitService
 		oBP = em.find(BusinessPartner.class, "1");
 		Order oOrder = new Order();
 		oOrder.setBp(oBP);
-		em.persist(oOrder);*/
+		em.persist(oOrder);
 		return "ok";
 	}
-}
+}*/
