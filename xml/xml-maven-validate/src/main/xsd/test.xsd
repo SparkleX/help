@@ -1,21 +1,7 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-
 	targetNamespace="urn:test:test"
 	xmlns="urn:test:test" elementFormDefault="qualified">
-
-<!--  	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
-	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
-	jaxb:extensionBindingPrefixes="xjc" 
-	jaxb:version="2.0"-->
-<!-- 	<xs:annotation>
-		<xs:appinfo>
-			<jaxb:globalBindings generateValueClass="false">
-				<xjc:superClass name="help.BaseClass" />
-			</jaxb:globalBindings>
-		</xs:appinfo>
-	</xs:annotation> -->
-
 	<xs:element name="note">
 		<xs:complexType>
 			<xs:sequence>
