@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<table xmlns="urn:test:test">
+	<columns>
+		<name>1</name>
+	</columns>
+	<columns>
+		<name>2</name>
+	</columns>
+
+</table>

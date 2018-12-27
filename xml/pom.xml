@@ -9,5 +9,6 @@
   <packaging>pom</packaging>
   <modules>
   	<module>xml-maven-validate</module>
+  	<module>xml-jaxb-extend</module>
   </modules>
 </project>
