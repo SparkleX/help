@@ -12,5 +12,6 @@
   	<module>jpa-hibernate</module>
   	<module>jpa-eclipselink</module>
   	<module>jpa-eclipselink-tenant</module>
+  	<module>jpa-rest-service</module>
   </modules>
 </project>
