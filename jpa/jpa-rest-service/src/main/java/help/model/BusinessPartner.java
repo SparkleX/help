@@ -8,11 +8,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+import help.EntityIdResolver;
 
 @Entity
 @Table(name = "OCRD")
-@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)
+@JsonIdentityInfo(
+		property = "id",
+		generator = ObjectIdGenerators.PropertyGenerator.class,
+		resolver = EntityIdResolver.class,
+		scope=BusinessPartner.class)
+@JsonIdentityReference(alwaysAsId = true)
 public class BusinessPartner 
 {
 	public Integer getId() {

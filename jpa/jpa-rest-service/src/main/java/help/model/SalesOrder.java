@@ -1,7 +1,9 @@
 package help.model;
 
 import java.math.BigDecimal;
+import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,20 +12,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+import help.EntityIdResolver;
 
 @Entity
 @Table(name = "ORDR")
+@JsonIdentityInfo(
+		property = "id",
+		generator = ObjectIdGenerators.PropertyGenerator.class,
+		resolver = EntityIdResolver.class,
+		scope=SalesOrder.class)
 public class SalesOrder 
 {
 	public Integer getId() {
@@ -68,12 +74,33 @@ public class SalesOrder
 	@Column
 	BigDecimal docTotal;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	//@MapsId("business_partner_id")
 	@JoinColumn(name="business_partner_id")
 //	@Transient
 
-	@JsonIdentityReference(alwaysAsId = true)
+	
 	BusinessPartner businessPartner;
 	
+	
+
+
+	public Collection<SalesOrderDetail> getDetails() {
+		return details;
+	}
+
+	public void setDetails(Collection<SalesOrderDetail> details) {
+		this.details = details;
+	}
+
+	@OneToMany(mappedBy="docId",cascade= CascadeType.ALL)
+	//@JoinColumn(name="doc_id")
+	//@NotNull
+	Collection<SalesOrderDetail> details;
+	
+	@PrePersist
+	private void prePersist() 
+	{
+		details.forEach( c -> c.setDocId(this));
+	}
 }

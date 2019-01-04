@@ -40,6 +40,7 @@ import org.apache.olingo.odata2.api.edm.provider.EntitySet;
 import org.apache.olingo.odata2.api.edm.provider.EntityType;
 import org.apache.olingo.odata2.api.edm.provider.Facets;
 import org.apache.olingo.odata2.api.edm.provider.FunctionImport;
+import org.apache.olingo.odata2.api.edm.provider.FunctionImportParameter;
 import org.apache.olingo.odata2.api.edm.provider.Key;
 import org.apache.olingo.odata2.api.edm.provider.NavigationProperty;
 import org.apache.olingo.odata2.api.edm.provider.Property;
@@ -51,228 +52,259 @@ import org.apache.olingo.odata2.api.exception.ODataException;
 
 public class CarEdmProvider extends EdmProvider {
 
-  static final String ENTITY_SET_NAME_MANUFACTURERS = "Manufacturers";
-  static final String ENTITY_SET_NAME_CARS = "Cars";
-  static final String ENTITY_NAME_MANUFACTURER = "Manufacturer";
-  static final String ENTITY_NAME_CAR = "Car";
+	static final String ENTITY_SET_NAME_MANUFACTURERS = "Manufacturers";
+	static final String ENTITY_SET_NAME_CARS = "Cars";
+	static final String ENTITY_NAME_MANUFACTURER = "Manufacturer";
+	static final String ENTITY_NAME_CAR = "Car";
 
-  private static final String NAMESPACE = "org.apache.olingo.odata2.ODataCars";
+	private static final String NAMESPACE = "org.apache.olingo.odata2.ODataCars";
 
-  private static final FullQualifiedName ENTITY_TYPE_1_1 = new FullQualifiedName(NAMESPACE, ENTITY_NAME_CAR);
-  private static final FullQualifiedName ENTITY_TYPE_1_2 = new FullQualifiedName(NAMESPACE, ENTITY_NAME_MANUFACTURER);
+	private static final FullQualifiedName ENTITY_TYPE_1_1 = new FullQualifiedName(NAMESPACE, ENTITY_NAME_CAR);
+	private static final FullQualifiedName ENTITY_TYPE_1_2 = new FullQualifiedName(NAMESPACE, ENTITY_NAME_MANUFACTURER);
 
-  private static final FullQualifiedName COMPLEX_TYPE = new FullQualifiedName(NAMESPACE, "Address");
+	private static final FullQualifiedName COMPLEX_TYPE = new FullQualifiedName(NAMESPACE, "Address");
 
-  private static final FullQualifiedName ASSOCIATION_CAR_MANUFACTURER = new FullQualifiedName(NAMESPACE,
-      "Car_Manufacturer_Manufacturer_Cars");
+	static final String TS_ENTITY_SET_NAME_ORDER_COLLECTION = "OrderCollection";
+	// private static final String TS_ENTITY_NAME_ORDER = "Order";
+	private static final FullQualifiedName TS_ENTITY_TYPE_ORDER = new FullQualifiedName(NAMESPACE, "Order");
+	private static final FullQualifiedName TS_COMPLEX_TYPE_ORDER_LINE = new FullQualifiedName(NAMESPACE, "OrderLine");
 
-  private static final String ROLE_1_1 = "Car_Manufacturer";
-  private static final String ROLE_1_2 = "Manufacturer_Cars";
+	private static final FullQualifiedName ASSOCIATION_CAR_MANUFACTURER = new FullQualifiedName(NAMESPACE,
+			"Car_Manufacturer_Manufacturer_Cars");
 
-  private static final String ENTITY_CONTAINER = "ODataCarsEntityContainer";
+	private static final String ROLE_1_1 = "Car_Manufacturer";
+	private static final String ROLE_1_2 = "Manufacturer_Cars";
 
-  private static final String ASSOCIATION_SET = "Cars_Manufacturers";
+	private static final String ENTITY_CONTAINER = "ODataCarsEntityContainer";
 
-  private static final String FUNCTION_IMPORT = "NumberOfCars";
+	private static final String ASSOCIATION_SET = "Cars_Manufacturers";
 
-  @Override
-  public List<Schema> getSchemas() throws ODataException {
-    List<Schema> schemas = new ArrayList<Schema>();
+	private static final String FUNCTION_IMPORT = "NumberOfCars";
 
-    Schema schema = new Schema();
-    schema.setNamespace(NAMESPACE);
+	@Override
+	public List<Schema> getSchemas() throws ODataException {
+		List<Schema> schemas = new ArrayList<Schema>();
 
-    List<EntityType> entityTypes = new ArrayList<EntityType>();
-    entityTypes.add(getEntityType(ENTITY_TYPE_1_1));
-    entityTypes.add(getEntityType(ENTITY_TYPE_1_2));
-    schema.setEntityTypes(entityTypes);
+		Schema schema = new Schema();
+		schema.setNamespace(NAMESPACE);
 
-    List<ComplexType> complexTypes = new ArrayList<ComplexType>();
-    complexTypes.add(getComplexType(COMPLEX_TYPE));
-    schema.setComplexTypes(complexTypes);
+		List<EntityType> entityTypes = new ArrayList<EntityType>();
+		entityTypes.add(getEntityType(ENTITY_TYPE_1_1));
+		entityTypes.add(getEntityType(ENTITY_TYPE_1_2));
+		entityTypes.add(getEntityType(TS_ENTITY_TYPE_ORDER));
 
-    List<Association> associations = new ArrayList<Association>();
-    associations.add(getAssociation(ASSOCIATION_CAR_MANUFACTURER));
-    schema.setAssociations(associations);
+		schema.setEntityTypes(entityTypes);
 
-    List<EntityContainer> entityContainers = new ArrayList<EntityContainer>();
-    EntityContainer entityContainer = new EntityContainer();
-    entityContainer.setName(ENTITY_CONTAINER).setDefaultEntityContainer(true);
+		List<ComplexType> complexTypes = new ArrayList<ComplexType>();
+		complexTypes.add(getComplexType(COMPLEX_TYPE));
+		schema.setComplexTypes(complexTypes);
 
-    List<EntitySet> entitySets = new ArrayList<EntitySet>();
-    entitySets.add(getEntitySet(ENTITY_CONTAINER, ENTITY_SET_NAME_CARS));
-    entitySets.add(getEntitySet(ENTITY_CONTAINER, ENTITY_SET_NAME_MANUFACTURERS));
-    entityContainer.setEntitySets(entitySets);
+		List<Association> associations = new ArrayList<Association>();
+		associations.add(getAssociation(ASSOCIATION_CAR_MANUFACTURER));
+		schema.setAssociations(associations);
 
-    List<AssociationSet> associationSets = new ArrayList<AssociationSet>();
-    associationSets.add(getAssociationSet(ENTITY_CONTAINER, ASSOCIATION_CAR_MANUFACTURER,
-        ENTITY_SET_NAME_MANUFACTURERS, ROLE_1_2));
-    entityContainer.setAssociationSets(associationSets);
+		List<EntityContainer> entityContainers = new ArrayList<EntityContainer>();
+		EntityContainer entityContainer = new EntityContainer();
+		entityContainer.setName(ENTITY_CONTAINER).setDefaultEntityContainer(true);
 
-    List<FunctionImport> functionImports = new ArrayList<FunctionImport>();
-    functionImports.add(getFunctionImport(ENTITY_CONTAINER, FUNCTION_IMPORT));
-    entityContainer.setFunctionImports(functionImports);
+		List<EntitySet> entitySets = new ArrayList<EntitySet>();
+		entitySets.add(getEntitySet(ENTITY_CONTAINER, ENTITY_SET_NAME_CARS));
+		entitySets.add(getEntitySet(ENTITY_CONTAINER, ENTITY_SET_NAME_MANUFACTURERS));
+		entitySets.add(getEntitySet(ENTITY_CONTAINER, TS_ENTITY_SET_NAME_ORDER_COLLECTION));
+		entityContainer.setEntitySets(entitySets);
 
-    entityContainers.add(entityContainer);
-    schema.setEntityContainers(entityContainers);
+		List<AssociationSet> associationSets = new ArrayList<AssociationSet>();
+		associationSets.add(getAssociationSet(ENTITY_CONTAINER, ASSOCIATION_CAR_MANUFACTURER,
+				ENTITY_SET_NAME_MANUFACTURERS, ROLE_1_2));
+		entityContainer.setAssociationSets(associationSets);
 
-    schemas.add(schema);
+		List<FunctionImport> functionImports = new ArrayList<FunctionImport>();
+		functionImports.add(getFunctionImport(ENTITY_CONTAINER, FUNCTION_IMPORT));
+		entityContainer.setFunctionImports(functionImports);
 
-    return schemas;
-  }
+		entityContainers.add(entityContainer);
+		schema.setEntityContainers(entityContainers);
 
-  @Override
-  public EntityType getEntityType(final FullQualifiedName edmFQName) throws ODataException {
-    if (NAMESPACE.equals(edmFQName.getNamespace())) {
+		schemas.add(schema);
 
-      if (ENTITY_TYPE_1_1.getName().equals(edmFQName.getName())) {
+		return schemas;
+	}
 
-        // Properties
-        List<Property> properties = new ArrayList<Property>();
-        properties.add(new SimpleProperty().setName("Id").setType(EdmSimpleTypeKind.Int32).setFacets(
-            new Facets().setNullable(false)));
-        properties.add(new SimpleProperty().setName("Model").setType(EdmSimpleTypeKind.String).setFacets(
-            new Facets().setNullable(false).setMaxLength(100).setDefaultValue("Hugo"))
-            .setCustomizableFeedMappings(
-                new CustomizableFeedMappings().setFcTargetPath(EdmTargetPath.SYNDICATION_TITLE)));
-        properties.add(new SimpleProperty().setName("ManufacturerId").setType(EdmSimpleTypeKind.Int32));
-        properties.add(new SimpleProperty().setName("Price").setType(EdmSimpleTypeKind.Decimal));
-        properties.add(new SimpleProperty().setName("Currency").setType(EdmSimpleTypeKind.String).setFacets(
-            new Facets().setMaxLength(3)));
-        properties.add(new SimpleProperty().setName("ModelYear").setType(EdmSimpleTypeKind.String).setFacets(
-            new Facets().setMaxLength(4)));
-        properties.add(new SimpleProperty().setName("Updated").setType(EdmSimpleTypeKind.DateTime)
-            .setFacets(new Facets().setNullable(false).setConcurrencyMode(EdmConcurrencyMode.Fixed))
-            .setCustomizableFeedMappings(
-                new CustomizableFeedMappings().setFcTargetPath(EdmTargetPath.SYNDICATION_UPDATED)));
-        properties.add(new SimpleProperty().setName("ImagePath").setType(EdmSimpleTypeKind.String));
+	@Override
+	public EntityType getEntityType(final FullQualifiedName edmFQName) throws ODataException {
+		if (NAMESPACE.equals(edmFQName.getNamespace())) {
+			if (TS_ENTITY_TYPE_ORDER.getName().equals(edmFQName.getName())) 
+			{
+				List<Property> properties = new ArrayList<Property>();
+				properties.add(new SimpleProperty().setName("Id").setType(EdmSimpleTypeKind.Int32)
+						.setFacets(new Facets().setNullable(false)));
+				List<PropertyRef> keyProperties = new ArrayList<PropertyRef>();
+				keyProperties.add(new PropertyRef().setName("Id"));
+				Key key = new Key().setKeys(keyProperties);
 
-        // Navigation Properties
-        List<NavigationProperty> navigationProperties = new ArrayList<NavigationProperty>();
-        navigationProperties.add(new NavigationProperty().setName("Manufacturer")
-            .setRelationship(ASSOCIATION_CAR_MANUFACTURER).setFromRole(ROLE_1_1).setToRole(ROLE_1_2));
+				return new EntityType().setName(TS_ENTITY_TYPE_ORDER.getName()).setProperties(properties).setKey(key);
+			}
+			if (ENTITY_TYPE_1_1.getName().equals(edmFQName.getName())) {
 
-        // Key
-        List<PropertyRef> keyProperties = new ArrayList<PropertyRef>();
-        keyProperties.add(new PropertyRef().setName("Id"));
-        Key key = new Key().setKeys(keyProperties);
+				// Properties
+				List<Property> properties = new ArrayList<Property>();
+				properties.add(new SimpleProperty().setName("Id").setType(EdmSimpleTypeKind.Int32)
+						.setFacets(new Facets().setNullable(false)));
+				properties.add(new SimpleProperty().setName("Model").setType(EdmSimpleTypeKind.String)
+						.setFacets(new Facets().setNullable(false).setMaxLength(100).setDefaultValue("Hugo"))
+						.setCustomizableFeedMappings(
+								new CustomizableFeedMappings().setFcTargetPath(EdmTargetPath.SYNDICATION_TITLE)));
+				properties.add(new SimpleProperty().setName("ManufacturerId").setType(EdmSimpleTypeKind.Int32));
+				properties.add(new SimpleProperty().setName("Price").setType(EdmSimpleTypeKind.Decimal));
+				properties.add(new SimpleProperty().setName("Currency").setType(EdmSimpleTypeKind.String)
+						.setFacets(new Facets().setMaxLength(3)));
+				properties.add(new SimpleProperty().setName("ModelYear").setType(EdmSimpleTypeKind.String)
+						.setFacets(new Facets().setMaxLength(4)));
+				properties.add(new SimpleProperty().setName("Updated").setType(EdmSimpleTypeKind.DateTime)
+						.setFacets(new Facets().setNullable(false).setConcurrencyMode(EdmConcurrencyMode.Fixed))
+						.setCustomizableFeedMappings(
+								new CustomizableFeedMappings().setFcTargetPath(EdmTargetPath.SYNDICATION_UPDATED)));
+				properties.add(new SimpleProperty().setName("ImagePath").setType(EdmSimpleTypeKind.String));
 
-        return new EntityType().setName(ENTITY_TYPE_1_1.getName())
-            .setProperties(properties)
-            .setKey(key)
-            .setNavigationProperties(navigationProperties);
+				// Navigation Properties
+				List<NavigationProperty> navigationProperties = new ArrayList<NavigationProperty>();
+				navigationProperties.add(new NavigationProperty().setName("Manufacturer")
+						.setRelationship(ASSOCIATION_CAR_MANUFACTURER).setFromRole(ROLE_1_1).setToRole(ROLE_1_2));
 
-      } else if (ENTITY_TYPE_1_2.getName().equals(edmFQName.getName())) {
+				// Key
+				List<PropertyRef> keyProperties = new ArrayList<PropertyRef>();
+				keyProperties.add(new PropertyRef().setName("Id"));
+				Key key = new Key().setKeys(keyProperties);
 
-        // Properties
-        List<Property> properties = new ArrayList<Property>();
-        properties.add(new SimpleProperty().setName("Id").setType(EdmSimpleTypeKind.Int32).setFacets(
-            new Facets().setNullable(false)));
-        properties.add(new SimpleProperty().setName("Name").setType(EdmSimpleTypeKind.String).setFacets(
-            new Facets().setNullable(false).setMaxLength(100))
-            .setCustomizableFeedMappings(
-                new CustomizableFeedMappings().setFcTargetPath(EdmTargetPath.SYNDICATION_TITLE)));
-        properties.add(new ComplexProperty().setName("Address").setType(new FullQualifiedName(NAMESPACE, "Address")));
-        properties.add(new SimpleProperty().setName("Updated").setType(EdmSimpleTypeKind.DateTime)
-            .setFacets(new Facets().setNullable(false).setConcurrencyMode(EdmConcurrencyMode.Fixed))
-            .setCustomizableFeedMappings(
-                new CustomizableFeedMappings().setFcTargetPath(EdmTargetPath.SYNDICATION_UPDATED)));
+				return new EntityType().setName(ENTITY_TYPE_1_1.getName()).setProperties(properties).setKey(key)
+						.setNavigationProperties(navigationProperties);
 
-        // Navigation Properties
-        List<NavigationProperty> navigationProperties = new ArrayList<NavigationProperty>();
-        navigationProperties.add(new NavigationProperty().setName("Cars")
-            .setRelationship(ASSOCIATION_CAR_MANUFACTURER).setFromRole(ROLE_1_2).setToRole(ROLE_1_1));
+			} else if (ENTITY_TYPE_1_2.getName().equals(edmFQName.getName())) {
 
-        // Key
-        List<PropertyRef> keyProperties = new ArrayList<PropertyRef>();
-        keyProperties.add(new PropertyRef().setName("Id"));
-        Key key = new Key().setKeys(keyProperties);
+				// Properties
+				List<Property> properties = new ArrayList<Property>();
+				properties.add(new SimpleProperty().setName("Id").setType(EdmSimpleTypeKind.Int32)
+						.setFacets(new Facets().setNullable(false)));
+				properties.add(new SimpleProperty().setName("Name").setType(EdmSimpleTypeKind.String)
+						.setFacets(new Facets().setNullable(false).setMaxLength(100)).setCustomizableFeedMappings(
+								new CustomizableFeedMappings().setFcTargetPath(EdmTargetPath.SYNDICATION_TITLE)));
+				properties.add(
+						new ComplexProperty().setName("Address").setType(new FullQualifiedName(NAMESPACE, "Address")));
+				properties.add(new SimpleProperty().setName("Updated").setType(EdmSimpleTypeKind.DateTime)
+						.setFacets(new Facets().setNullable(false).setConcurrencyMode(EdmConcurrencyMode.Fixed))
+						.setCustomizableFeedMappings(
+								new CustomizableFeedMappings().setFcTargetPath(EdmTargetPath.SYNDICATION_UPDATED)));
 
-        return new EntityType().setName(ENTITY_TYPE_1_2.getName())
-            .setProperties(properties)
-            .setKey(key)
-            .setNavigationProperties(navigationProperties);
+				// Navigation Properties
+				List<NavigationProperty> navigationProperties = new ArrayList<NavigationProperty>();
+				navigationProperties.add(new NavigationProperty().setName("Cars")
+						.setRelationship(ASSOCIATION_CAR_MANUFACTURER).setFromRole(ROLE_1_2).setToRole(ROLE_1_1));
 
-      }
-    }
+				// Key
+				List<PropertyRef> keyProperties = new ArrayList<PropertyRef>();
+				keyProperties.add(new PropertyRef().setName("Id"));
+				Key key = new Key().setKeys(keyProperties);
 
-    return null;
-  }
+				return new EntityType().setName(ENTITY_TYPE_1_2.getName()).setProperties(properties).setKey(key)
+						.setNavigationProperties(navigationProperties);
 
-  @Override
-  public ComplexType getComplexType(final FullQualifiedName edmFQName) throws ODataException {
-    if (NAMESPACE.equals(edmFQName.getNamespace())) {
-      if (COMPLEX_TYPE.getName().equals(edmFQName.getName())) {
-        List<Property> properties = new ArrayList<Property>();
-        properties.add(new SimpleProperty().setName("Street").setType(EdmSimpleTypeKind.String));
-        properties.add(new SimpleProperty().setName("City").setType(EdmSimpleTypeKind.String));
-        properties.add(new SimpleProperty().setName("ZipCode").setType(EdmSimpleTypeKind.String));
-        properties.add(new SimpleProperty().setName("Country").setType(EdmSimpleTypeKind.String));
-        return new ComplexType().setName(COMPLEX_TYPE.getName()).setProperties(properties);
-      }
-    }
+			}
+		}
 
-    return null;
-  }
+		return null;
+	}
 
-  @Override
-  public Association getAssociation(final FullQualifiedName edmFQName) throws ODataException {
-    if (NAMESPACE.equals(edmFQName.getNamespace())) {
-      if (ASSOCIATION_CAR_MANUFACTURER.getName().equals(edmFQName.getName())) {
-        return new Association().setName(ASSOCIATION_CAR_MANUFACTURER.getName())
-            .setEnd1(
-                new AssociationEnd().setType(ENTITY_TYPE_1_1).setRole(ROLE_1_1).setMultiplicity(EdmMultiplicity.MANY))
-            .setEnd2(
-                new AssociationEnd().setType(ENTITY_TYPE_1_2).setRole(ROLE_1_2).setMultiplicity(EdmMultiplicity.ONE));
-      }
-    }
-    return null;
-  }
+	@Override
+	public ComplexType getComplexType(final FullQualifiedName edmFQName) throws ODataException {
+		if (NAMESPACE.equals(edmFQName.getNamespace())) {
+			if (COMPLEX_TYPE.getName().equals(edmFQName.getName())) {
+				List<Property> properties = new ArrayList<Property>();
+				properties.add(new SimpleProperty().setName("Street").setType(EdmSimpleTypeKind.String));
+				properties.add(new SimpleProperty().setName("City").setType(EdmSimpleTypeKind.String));
+				properties.add(new SimpleProperty().setName("ZipCode").setType(EdmSimpleTypeKind.String));
+				properties.add(new SimpleProperty().setName("Country").setType(EdmSimpleTypeKind.String));
+				return new ComplexType().setName(COMPLEX_TYPE.getName()).setProperties(properties);
+			}
+		}
 
-  @Override
-  public EntitySet getEntitySet(final String entityContainer, final String name) throws ODataException {
-    if (ENTITY_CONTAINER.equals(entityContainer)) {
-      if (ENTITY_SET_NAME_CARS.equals(name)) {
-        return new EntitySet().setName(name).setEntityType(ENTITY_TYPE_1_1);
-      } else if (ENTITY_SET_NAME_MANUFACTURERS.equals(name)) {
-        return new EntitySet().setName(name).setEntityType(ENTITY_TYPE_1_2);
-      }
-    }
-    return null;
-  }
+		return null;
+	}
 
-  @Override
-  public AssociationSet getAssociationSet(final String entityContainer, final FullQualifiedName association,
-      final String sourceEntitySetName, final String sourceEntitySetRole) throws ODataException {
-    if (ENTITY_CONTAINER.equals(entityContainer)) {
-      if (ASSOCIATION_CAR_MANUFACTURER.equals(association)) {
-        return new AssociationSet().setName(ASSOCIATION_SET)
-            .setAssociation(ASSOCIATION_CAR_MANUFACTURER)
-            .setEnd1(new AssociationSetEnd().setRole(ROLE_1_2).setEntitySet(ENTITY_SET_NAME_MANUFACTURERS))
-            .setEnd2(new AssociationSetEnd().setRole(ROLE_1_1).setEntitySet(ENTITY_SET_NAME_CARS));
-      }
-    }
-    return null;
-  }
+	@Override
+	public Association getAssociation(final FullQualifiedName edmFQName) throws ODataException {
+		if (NAMESPACE.equals(edmFQName.getNamespace())) {
+			if (ASSOCIATION_CAR_MANUFACTURER.getName().equals(edmFQName.getName())) {
+				return new Association().setName(ASSOCIATION_CAR_MANUFACTURER.getName())
+						.setEnd1(new AssociationEnd().setType(ENTITY_TYPE_1_1).setRole(ROLE_1_1)
+								.setMultiplicity(EdmMultiplicity.MANY))
+						.setEnd2(new AssociationEnd().setType(ENTITY_TYPE_1_2).setRole(ROLE_1_2)
+								.setMultiplicity(EdmMultiplicity.ONE));
+			}
+		}
+		return null;
+	}
 
-  @Override
-  public FunctionImport getFunctionImport(final String entityContainer, final String name) throws ODataException {
-    if (ENTITY_CONTAINER.equals(entityContainer)) {
-      if (FUNCTION_IMPORT.equals(name)) {
-        return new FunctionImport().setName(name)
-            .setReturnType(new ReturnType().setTypeName(ENTITY_TYPE_1_1).setMultiplicity(EdmMultiplicity.MANY))
-            .setHttpMethod("GET");
-      }
-    }
-    return null;
-  }
+	@Override
+	public EntitySet getEntitySet(final String entityContainer, final String name) throws ODataException {
+		if (ENTITY_CONTAINER.equals(entityContainer)) {
+			if (ENTITY_SET_NAME_CARS.equals(name)) {
+				return new EntitySet().setName(name).setEntityType(ENTITY_TYPE_1_1);
+			} else if (ENTITY_SET_NAME_MANUFACTURERS.equals(name)) {
+				return new EntitySet().setName(name).setEntityType(ENTITY_TYPE_1_2);
+			} else if (ENTITY_SET_NAME_MANUFACTURERS.equals(name)) {
+				return new EntitySet().setName(name).setEntityType(TS_ENTITY_TYPE_ORDER);
+			}
+		}
+		return null;
+	}
 
-  @Override
-  public EntityContainerInfo getEntityContainerInfo(final String name) throws ODataException {
-    if (name == null || "ODataCarsEntityContainer".equals(name)) {
-      return new EntityContainerInfo().setName("ODataCarsEntityContainer").setDefaultEntityContainer(true);
-    }
+	@Override
+	public AssociationSet getAssociationSet(final String entityContainer, final FullQualifiedName association,
+			final String sourceEntitySetName, final String sourceEntitySetRole) throws ODataException {
+		if (ENTITY_CONTAINER.equals(entityContainer)) {
+			if (ASSOCIATION_CAR_MANUFACTURER.equals(association)) {
+				return new AssociationSet().setName(ASSOCIATION_SET).setAssociation(ASSOCIATION_CAR_MANUFACTURER)
+						.setEnd1(new AssociationSetEnd().setRole(ROLE_1_2).setEntitySet(ENTITY_SET_NAME_MANUFACTURERS))
+						.setEnd2(new AssociationSetEnd().setRole(ROLE_1_1).setEntitySet(ENTITY_SET_NAME_CARS));
+			}
+		}
+		return null;
+	}
 
-    return null;
-  }
+	@Override
+	public FunctionImport getFunctionImport(final String entityContainer, final String name) throws ODataException {
+		if (ENTITY_CONTAINER.equals(entityContainer)) {
+			if (FUNCTION_IMPORT.equals(name)) {
+				List<FunctionImportParameter> parameters = new ArrayList<FunctionImportParameter>();
+				FunctionImportParameter param = new FunctionImportParameter();
+				param.setType(EdmSimpleTypeKind.Int16);
+				param.setName("test");
+				parameters.add(param);
+				return new FunctionImport().setName(name).setParameters(parameters)
+						.setReturnType(new ReturnType().setTypeName(EdmSimpleTypeKind.Int16.getFullQualifiedName()))
+						.setHttpMethod("GET");
+
+				/*
+				 * List<FunctionImportParameter> parameters = new
+				 * ArrayList<FunctionImportParameter>(); FunctionImportParameter param = new
+				 * FunctionImportParameter(); param.setType(EdmSimpleTypeKind.Int16);
+				 * param.setName("test"); parameters.add(param ); return new
+				 * FunctionImport().setName(name) .setEntitySet(ENTITY_SET_NAME_CARS)
+				 * .setParameters(parameters ) .setReturnType(new
+				 * ReturnType().setTypeName(ENTITY_TYPE_1_1).setMultiplicity(EdmMultiplicity.
+				 * MANY)) .setHttpMethod("GET");
+				 */
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public EntityContainerInfo getEntityContainerInfo(final String name) throws ODataException {
+		if (name == null || "ODataCarsEntityContainer".equals(name)) {
+			return new EntityContainerInfo().setName("ODataCarsEntityContainer").setDefaultEntityContainer(true);
+		}
+
+		return null;
+	}
 }

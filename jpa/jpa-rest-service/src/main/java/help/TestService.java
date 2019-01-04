@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import help.model.SalesOrder;
@@ -19,7 +21,8 @@ public class TestService
 	@GetMapping(path="/test")
 	public List<SalesOrder> test()
 	{
-		return orderService.test();
+		List<SalesOrder> list = orderService.test();
+		return list;
 	}
 	
 	
@@ -27,5 +30,11 @@ public class TestService
 	public String init()
 	{
 		return orderService.init();
+	}
+	
+	@PostMapping(path="/create")
+	public String create(@RequestBody SalesOrder data)
+	{
+		return orderService.create(data);
 	}
 }

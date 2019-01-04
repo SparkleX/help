@@ -7,11 +7,11 @@ import javax.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import help.model.BusinessPartner;
 import help.model.Item;
 import help.model.SalesOrder;
+import help.model.SalesOrderDetail;
 import help.repo.RepoOITM;
 import help.repo.RepoSalesOrder;
 
@@ -48,6 +48,16 @@ public class OrderService
 		oOrder.setBusinessPartner(oBP);
 		em.persist(oOrder);
 		
+		return "done";
+	}
+	@Transactional
+	public String create(SalesOrder data) 
+	{
+	/*	for(SalesOrderDetail orderDetail:data.getDetails())
+		{
+			orderDetail.setDocId(data);
+		}*/
+		em.persist(data);
 		return "done";
 	}
 }
