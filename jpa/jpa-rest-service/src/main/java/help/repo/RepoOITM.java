@@ -6,18 +6,18 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 
-import help.model.MoOITM;
+import help.model.Item;
 
 
 
-public interface RepoOITM extends Repository<MoOITM, String> 
+public interface RepoOITM extends Repository<Item, String> 
 {
 	@Query(nativeQuery = true, value="select * from OITM where ItemCode=1")
-	List<MoOITM> search();
+	List<Item> search();
 	
 	@Query(nativeQuery = true, value="select * from OITM where ItemCode=? and l=?")
-	List<MoOITM> search2(String itemCode, Integer a);
+	List<Item> search2(String itemCode, Integer a);
 	
 	@Query(nativeQuery = true, value="select * from OITM where ItemCode=:a and l=:itemCode")
-	List<MoOITM> search3(@Param("itemCode")String itemCode, @Param("a") Integer a);
+	List<Item> search3(@Param("itemCode")String itemCode, @Param("a") Integer a);
 }
