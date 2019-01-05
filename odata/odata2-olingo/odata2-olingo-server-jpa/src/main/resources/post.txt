@@ -1,0 +1,9 @@
+POST http://localhost:8080/test/Items
+{
+	"d": {
+				"ItemCode": "I002",
+				"ItemName": "I002"
+		}
+}
+
+GET http://localhost:8080/test/SalesOrders(-1)?$expand=SalesOrderDetailDetails&$format=json

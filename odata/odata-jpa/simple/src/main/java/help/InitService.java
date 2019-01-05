@@ -1,4 +1,4 @@
-package tutorial.model;
+package help;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

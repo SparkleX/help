@@ -46,6 +46,11 @@
 			<artifactId>olingo-odata2-jpa-processor-core</artifactId>
 			<version>2.0.10</version>
 		</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.olingo/olingo-odata2-api-annotation -->
+<dependency>
+    <groupId>org.apache.olingo</groupId>
+    <artifactId>olingo-odata2-api-annotation</artifactId>
+</dependency>
 
 		<dependency>
 			<groupId>javax.servlet</groupId>

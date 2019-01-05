@@ -1,10 +1,10 @@
 spring:
   datasource:
-    url: jdbc:sqlserver://localhost:1433;DatabaseName=TEST
-    username: sa
-    password: 12345678
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
+    username: root
+    password: 1234
     hikari:
-      maximumPoolSize: 300
+      maximumPoolSize: 30
     initialization-mode: always
   jpa:
     generate-ddl: true
@@ -17,3 +17,10 @@ logging:
     root: INFO
     com.sap.olingo: DEBUG
     org.apache.olingo: DEBUG
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE        

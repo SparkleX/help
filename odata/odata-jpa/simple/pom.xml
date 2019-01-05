@@ -26,7 +26,10 @@
 			<artifactId>javax.persistence-api</artifactId>
 			<version>2.2</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.olingo/odata-commons-core -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.olingo</groupId>
 			<artifactId>odata-commons-core</artifactId>
@@ -38,9 +41,20 @@
 			<version>0.2.10-SNAPSHOT</version>
 		</dependency>
 		<dependency>
+			<groupId>com.sap.olingo</groupId>
+			<artifactId>odata-jpa-metadata</artifactId>
+			<version>0.2.10-SNAPSHOT</version>
+		</dependency>		
+		<dependency>
 			<groupId>org.apache.olingo</groupId>
 			<artifactId>odata-server-api</artifactId>
 			<version>4.5.0</version>
 		</dependency>
+<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+</dependency>
+		
 	</dependencies>
 </project>

@@ -10,6 +10,9 @@ import org.apache.olingo.odata2.jpa.processor.api.ODataJPATransaction;
 import org.apache.olingo.odata2.jpa.processor.api.OnJPAWriteContent;
 import org.apache.olingo.odata2.jpa.processor.api.exception.ODataJPAErrorCallback;
 import org.apache.olingo.odata2.jpa.processor.api.exception.ODataJPARuntimeException;
+import org.apache.olingo.odata2.jpa.processor.api.model.JPAEdmExtension;
+
+import help.function.SalesOrderProcessingExtension;
 
 public class ODataJPACarServiceFactory extends ODataJPAServiceFactory {
 
@@ -29,7 +32,7 @@ public class ODataJPACarServiceFactory extends ODataJPAServiceFactory {
 
 		oDataJPAContext.setPageSize(PAGE_SIZE);
 		setDetailErrors(true);
-
+		oDataJPAContext.setJPAEdmExtension((JPAEdmExtension) new SalesOrderProcessingExtension());
 		return oDataJPAContext;
 	}
 

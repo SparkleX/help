@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +17,7 @@ import javax.sql.DataSource;
 import org.apache.olingo.commons.api.ex.ODataException;
 import com.sap.olingo.jpa.metadata.api.JPAEdmProvider;
 import com.sap.olingo.jpa.metadata.api.JPAEntityManagerFactory;
+import com.sap.olingo.jpa.processor.core.api.JPAODataCRUDHandler;
 import com.sap.olingo.jpa.processor.core.api.JPAODataGetHandler;
 
 import org.apache.olingo.server.api.OData;
@@ -32,28 +34,30 @@ public class Servlet extends HttpServlet
 
 	@Autowired
 	EntityManagerFactory emf;
+	//@Autowired
+	//EntityManager em;
 
 	private static final long serialVersionUID = 1L;
 	private static final String PUNIT_NAME = "test";
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		EntityManager em = emf.createEntityManager();
 		try {
 
 			//EntityManagerFactory emf = JPAEntityManagerFactory.getEntityManagerFactory(PUNIT_NAME, new HashMap<String, Object>());
 			
-			JPAEdmProvider metadataProvider = new JPAEdmProvider(PUNIT_NAME, emf, null, null);
+			/*JPAEdmProvider metadataProvider = new JPAEdmProvider(PUNIT_NAME);
 
 			OData odata = OData.newInstance();
-			//ServiceMetadata edm = odata.createServiceMetadata(metadataProvider, new ArrayList<EdmxReference>());
-			//ODataHttpHandler handler = odata.createHandler(edm);
-			
-			JPAODataGetHandler handler = new JPAODataGetHandler(PUNIT_NAME,emf);
+			ServiceMetadata edm = odata.createServiceMetadata(metadataProvider, new ArrayList<EdmxReference>());
+			ODataHttpHandler handler = odata.createHandler(edm);*/
 			
 			
+			ODataHandlerImpl  handler = new ODataHandlerImpl (PUNIT_NAME);
 			
+			handler.process(req, resp,em);
 			
-			handler.process(req, resp);
 		} catch (RuntimeException e) 
 		{
 			e.printStackTrace();
@@ -62,6 +66,10 @@ public class Servlet extends HttpServlet
 		{
 			e.printStackTrace();
 			throw new ServletException(e);
+		}
+		finally
+		{
+			em.close();
 		}
 	}
 }
