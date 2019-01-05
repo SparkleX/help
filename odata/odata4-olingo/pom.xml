@@ -5,9 +5,9 @@
     <artifactId>odata</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>odata-jpa</artifactId>
+  <artifactId>odata4-olingo</artifactId>
   <packaging>pom</packaging>
   <modules>
-  	<module>simple</module>
+  	<module>odata4-olingo-jpa</module>
   </modules>
 </project>

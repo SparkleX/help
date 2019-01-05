@@ -8,7 +8,7 @@
   <artifactId>odata</artifactId>
   <packaging>pom</packaging>
   <modules>
-  	<module>odata-jpa</module>
+  	<module>odata4-olingo</module>
   	<module>odata-olingo-server</module>
   	<module>odata2-olingo</module>
   </modules>

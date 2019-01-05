@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>help</groupId>
-		<artifactId>odata-jpa</artifactId>
+		<artifactId>odata4-olingo</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>simple</artifactId>
+	<artifactId>odata4-olingo-jpa</artifactId>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

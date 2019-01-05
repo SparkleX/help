@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>help</groupId>
-		<artifactId>odata-olingo-server</artifactId>
+		<artifactId>odata4-olingo</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>odata-olingo-server-simple</artifactId>
+	<artifactId>odata4-olingo-server</artifactId>
     <properties>
 		<javax.version>2.5</javax.version>
 		<odata.version>4.5.0</odata.version>
