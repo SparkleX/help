@@ -1,6 +1,7 @@
 package help.model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.CascadeType;
@@ -97,7 +98,7 @@ public class SalesOrder
 	@OneToMany(mappedBy="docId",cascade= CascadeType.ALL)
 	//@JoinColumn(name="doc_id")
 	//@NotNull
-	Collection<SalesOrderDetail> details;
+	Collection<SalesOrderDetail> details = new ArrayList<>();
 	
 
 	@PrePersist

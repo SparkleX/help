@@ -1,0 +1,34 @@
+POST http://localhost:8080/test/SalesOrders
+
+{
+    "d": {
+        "DocTotal": null,
+        "BusinessPartnerDetails": {
+            "__deferred": {
+                "uri": "http://localhost:8080/test/BusinessPartners(-1)"
+            }
+        },
+        "SalesOrderDetailDetails": {
+            "results": [
+                {
+                    "LineNum": 0,
+                    "Price": "1.50",
+                    "ItemDetails": {
+                        "__deferred": {
+                            "uri": "http://localhost:8080/test/Items(-1)"
+                        }
+                    }
+                },
+                {
+                    "LineNum": 1,
+                    "Price": "2.80",
+                    "ItemDetails": {
+                        "__deferred": {
+                            "uri": "http://localhost:8080/test/Items(-1)"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
