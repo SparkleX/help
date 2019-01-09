@@ -2,7 +2,6 @@ package help;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 public class Application 
@@ -12,18 +11,22 @@ public class Application
 	{
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory( "test.jpa" );
 		EntityManager em1 = entityManagerFactory.createEntityManager();
-		EntityManager em2 = entityManagerFactory.createEntityManager();
-
-		boolean open = em1.isOpen();
-		open = em1.isOpen();
-		EntityTransaction t1 = em1.getTransaction();
-		t1.begin();
-		t1.commit();
-		EntityTransaction t2 = em1.getTransaction();
-		EntityTransaction t3 = em2.getTransaction();
-		EntityTransaction t4 = em2.getTransaction();
 		
-		em1.close();
+		em1.getTransaction().begin();
+		OrderDetail oOrderDetail = new OrderDetail();
+		oOrderDetail.id = 1;
+		oOrderDetail.lineNum = 2;				
+		em1.persist(oOrderDetail);
+		em1.getTransaction().commit();
+		
+		em1.getTransaction().begin();
+		OrderDetailKey oKey = new OrderDetailKey();
+		oKey.setId(1);
+		oKey.setLineNum(4);
+		oOrderDetail = em1.find(OrderDetail.class, oKey);
+		
+		em1.getTransaction().commit();
+		
 		entityManagerFactory.close();
 	}
 }
