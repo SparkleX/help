@@ -83,7 +83,7 @@ public class DemoBatchProcessor implements BatchProcessor {
     final String responseBoundary = "batch_" + UUID.randomUUID().toString();
 
     // 7. Setup response
-    response.setHeader(HttpHeader.CONTENT_TYPE, ContentType.MULTIPART_MIXED + ";boundary=" + responseBoundary);
+    response.setHeader(HttpHeader.CONTENT_TYPE, ContentType.MULTIPART_MIXED + ";boundary=" + boundary);
     response.setContent(responseContent);
     response.setStatusCode(HttpStatusCode.ACCEPTED.getStatusCode());
   }
