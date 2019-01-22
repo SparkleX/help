@@ -1,6 +1,7 @@
 package help;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class OrderDetailKey implements Serializable
 {
@@ -23,4 +24,20 @@ public class OrderDetailKey implements Serializable
 	}
 	Integer id;
 	Integer lineNum;
+	
+	@Override
+	public int hashCode()
+	{
+		return id;
+		
+	}
+	@Override
+	public boolean equals(Object o)
+	{
+        if (this == o) return true;
+        if (!(o instanceof OrderDetailKey)) return false;
+        OrderDetailKey object = (OrderDetailKey) o;
+        return getId() != null && Objects.equals(getId(), object.getId());
+		
+	}
 }
