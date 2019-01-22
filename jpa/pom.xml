@@ -14,5 +14,6 @@
   	<module>jpa-eclipselink-tenant</module>
   	<module>jpa-rest-service</module>
   	<module>jpa-user-field</module>
+  	<module>jpa-eclipselink-hack</module>
   </modules>
 </project>
