@@ -15,6 +15,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
+		<querydsl.version>4.2.1</querydsl.version>
 	</properties>
 	<build>
 		<plugins>
@@ -152,6 +153,26 @@
 				<artifactId>olingo-odata2-api-annotation</artifactId>
 				<version>2.0.10</version>
 			</dependency>
+			<dependency>
+				<groupId>com.querydsl</groupId>
+				<artifactId>querydsl-apt</artifactId>
+				<version>${querydsl.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.querydsl</groupId>
+				<artifactId>querydsl-jpa</artifactId>
+				<version>${querydsl.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.querydsl</groupId>
+				<artifactId>querydsl-core</artifactId>
+				<version>${querydsl.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.querydsl</groupId>
+				<artifactId>querydsl-sql</artifactId>
+				<version>${querydsl.version}</version>
+			</dependency>			
 		</dependencies>
 	</dependencyManagement>
 	<modules>
@@ -194,5 +215,6 @@
 		<module>spring-database</module>
 		<module>xml</module>
 		<module>mock</module>
+		<module>querydsl</module>
 	</modules>
 </project>
