@@ -8,7 +8,7 @@
   <artifactId>querydsl</artifactId>
   <packaging>pom</packaging>
   <modules>
-  	<module>querydsl-metadata</module>
+  	<module>querydsl-jpa-metadata</module>
   	<module>querydsl-jpa</module>
   	<module>querydsl-jdbc</module>
   	<module>querydsl-jdbc-metadata</module>

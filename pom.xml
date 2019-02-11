@@ -172,7 +172,23 @@
 				<groupId>com.querydsl</groupId>
 				<artifactId>querydsl-sql</artifactId>
 				<version>${querydsl.version}</version>
-			</dependency>			
+			</dependency>
+			<dependency>
+				<groupId>org.apache.maven</groupId>
+				<artifactId>maven-plugin-api</artifactId>
+				<version>3.6.0</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.maven.plugin-tools</groupId>
+				<artifactId>maven-plugin-annotations</artifactId>
+				<version>3.6.0</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>2.6</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<modules>
@@ -196,9 +212,7 @@
 		<module>tomcat-embed</module>
 		<module>spring-cloud</module>
 		<module>spring-tomcat-log</module>
-		<module>ttt</module>
 		<module>java-lang</module>
-		<module>spring-security</module>
 		<module>help-jackson</module>
 		<module>help-log</module>
 		<module>spring-profile</module>
@@ -208,7 +222,6 @@
 		<module>help-feign</module>
 		<module>help-lang-generic</module>
 		<module>help-http2</module>
-		<module>help-spring-async</module>
 		<module>spring-async</module>
 		<module>spring-actuator</module>
 		<module>spring</module>

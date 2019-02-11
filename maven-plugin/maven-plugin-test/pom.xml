@@ -2,51 +2,46 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>help</groupId>
 	<artifactId>maven-plugin-test</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<parent>
+		<groupId>help</groupId>
+		<artifactId>maven-plugin</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
 	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>help</groupId>
-										<artifactId>gen-maven-plugin</artifactId>
-										<versionRange>[1.0-RELEASE,)</versionRange>
-										<goals>
-											<goal>descriptor</goal>
-											<goal>gen</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-			
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 		<plugins>
-			<plugin>
-				<groupId>help</groupId>
-				<artifactId>gen-maven-plugin</artifactId>
-				<version>1.0-RELEASE</version>
+			<!--<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
 				<executions>
 					<execution>
+						<id>add-source</id>
 						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${project.build.directory}/generated-sources/java/</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>-->
+			<plugin>
+				<groupId>help</groupId>
+				<artifactId>maven-plugin-gen</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+				<executions>
+					<execution>
+						<!--  <?m2e execute onConfiguration?> -->
 						<goals>
 							<goal>gen</goal>
 						</goals>
+						<configuration>
+							<targetFolder>target/generated-sources/java</targetFolder>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>

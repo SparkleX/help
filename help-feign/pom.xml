@@ -10,7 +10,6 @@
   <packaging>pom</packaging>
   <modules>
   	<module>help-openfeign</module>
-  	<module>help-springfeign</module>
   	<module>feign-spring</module>
   </modules>
 </project>
