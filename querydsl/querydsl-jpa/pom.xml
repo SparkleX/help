@@ -28,10 +28,10 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
+		</dependency>			
 		<dependency>
 			<groupId>help</groupId>
-			<artifactId>querydsl-metadata</artifactId>
+			<artifactId>querydsl-jpa-metadata</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
