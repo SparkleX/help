@@ -229,5 +229,6 @@
 		<module>xml</module>
 		<module>mock</module>
 		<module>querydsl</module>
+		<module>tenant</module>
 	</modules>
 </project>
