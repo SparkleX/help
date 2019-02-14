@@ -230,5 +230,6 @@
 		<module>mock</module>
 		<module>querydsl</module>
 		<module>tenant</module>
+		<module>dynamic-query</module>
 	</modules>
 </project>
