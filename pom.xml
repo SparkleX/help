@@ -227,5 +227,6 @@
 		<module>tenant</module>
 		<module>dynamic-query</module>
 		<module>http2</module>
+		<module>nosql</module>
 	</modules>
 </project>
