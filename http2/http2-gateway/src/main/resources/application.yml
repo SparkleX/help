@@ -1,0 +1,29 @@
+server:
+  port: 8443
+  http2.enabled: true
+  ssl:
+    key-store: keystore.p12
+    key-password: 12345678
+    key-store-password: 12345678
+  
+  
+logging:
+  level:
+    org.springframework.web.reactive.DispatcherHandler: DEBUG
+spring:
+  resources:
+    static-locations: 
+    - classpath:/static
+    - file:../spring-cloud-gateway-static
+  cloud:
+    gateway:
+      httpclient:
+        ssl:
+          useInsecureTrustManager: true     
+      routes:
+      - id: test
+        uri: http://localhost:8080
+        predicates:
+        - Path=/test/** 
+        filters:
+          - StripPrefix=1        
