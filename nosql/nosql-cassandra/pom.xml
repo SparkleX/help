@@ -9,5 +9,6 @@
   <packaging>pom</packaging>
   <modules>
   	<module>nosql-cassandra-simple</module>
+  	<module>nosql-cassandra-spring</module>
   </modules>
 </project>

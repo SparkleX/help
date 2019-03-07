@@ -18,6 +18,7 @@
 		<querydsl.version>4.2.1</querydsl.version>
 		<springboot.version>2.1.2.RELEASE</springboot.version>
 		<springcloud.version>2.1.0.RELEASE</springcloud.version>
+		<cassandra.version>3.7.1</cassandra.version>
 	</properties>
 	<build>
 		<plugins>
@@ -182,7 +183,21 @@
 				<artifactId>spring-cloud-starter-gateway</artifactId>
 				<version>${springcloud.version}</version>
 			</dependency>
-
+		<dependency>
+			<groupId>com.datastax.cassandra</groupId>
+			<artifactId>cassandra-driver-core</artifactId>
+			<version>${cassandra.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.datastax.cassandra</groupId>
+			<artifactId>cassandra-driver-mapping</artifactId>
+			<version>${cassandra.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.datastax.cassandra</groupId>
+			<artifactId>cassandra-driver-extras</artifactId>
+			<version>${cassandra.version}</version>
+		</dependency>
 		</dependencies>
 
 	</dependencyManagement>
