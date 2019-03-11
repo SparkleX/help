@@ -1,4 +1,4 @@
-package help.spring.jdbc;
+package spring.jdbc.repository;
 
 public class Customer 
 {

@@ -1,4 +1,4 @@
-package help.spring.jdbc;
+package spring.jdbc.template;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

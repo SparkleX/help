@@ -2,13 +2,13 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>help</groupId>
-    <artifactId>spring-help</artifactId>
+    <artifactId>spring</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>spring</artifactId>
+  <artifactId>spring-jdbc</artifactId>
   <packaging>pom</packaging>
   <modules>
-  	<module>spring-core</module>
-  	<module>spring-jdbc</module>
+  	<module>spring-jdbc-template</module>
+  	<module>spring-jdbc-repository</module>
   </modules>
 </project>

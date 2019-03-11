@@ -16,6 +16,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
 		<querydsl.version>4.2.1</querydsl.version>
+		<spring.version>5.1.5.RELEASE</spring.version>
 		<springboot.version>2.1.2.RELEASE</springboot.version>
 		<springcloud.version>2.1.0.RELEASE</springcloud.version>
 		<cassandra.version>3.7.1</cassandra.version>
@@ -55,6 +56,12 @@
 				<version>${springboot.version}</version>
 				<scope>test</scope>
 			</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+			
 			<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
@@ -211,7 +218,6 @@
 		<module>spring-cloud-eureka</module>
 		<module>spring-feign</module>
 		<module>spring-gateway</module>
-		<module>spring-jdbc</module>
 		<module>spring-jpa</module>
 		<module>spring-kafka</module>
 		<module>spring-multicontext</module>
