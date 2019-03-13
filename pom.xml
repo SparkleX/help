@@ -56,12 +56,12 @@
 				<version>${springboot.version}</version>
 				<scope>test</scope>
 			</dependency>
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-jdbc</artifactId>
-		    <version>${spring.version}</version>
-		</dependency>
-			
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
 			<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
@@ -190,21 +190,27 @@
 				<artifactId>spring-cloud-starter-gateway</artifactId>
 				<version>${springcloud.version}</version>
 			</dependency>
-		<dependency>
-			<groupId>com.datastax.cassandra</groupId>
-			<artifactId>cassandra-driver-core</artifactId>
-			<version>${cassandra.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.datastax.cassandra</groupId>
-			<artifactId>cassandra-driver-mapping</artifactId>
-			<version>${cassandra.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.datastax.cassandra</groupId>
-			<artifactId>cassandra-driver-extras</artifactId>
-			<version>${cassandra.version}</version>
-		</dependency>
+			<dependency>
+				<groupId>com.datastax.cassandra</groupId>
+				<artifactId>cassandra-driver-core</artifactId>
+				<version>${cassandra.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.datastax.cassandra</groupId>
+				<artifactId>cassandra-driver-mapping</artifactId>
+				<version>${cassandra.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.datastax.cassandra</groupId>
+				<artifactId>cassandra-driver-extras</artifactId>
+				<version>${cassandra.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.springframework.boot</groupId>
+			    <artifactId>spring-boot-starter-webflux</artifactId>
+			    <version>${springboot.version}</version>
+			</dependency>
+			
 		</dependencies>
 
 	</dependencyManagement>

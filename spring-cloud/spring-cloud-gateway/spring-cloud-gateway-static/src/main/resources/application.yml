@@ -1,0 +1,6 @@
+spring:
+  resources:
+    static-locations: 
+    - classpath:/static
+    - file:../spring-cloud-gateway-static
+
