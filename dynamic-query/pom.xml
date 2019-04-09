@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>help</groupId>
-    <artifactId>spring-help</artifactId>
+    <artifactId>help</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>dynamic-query</artifactId>

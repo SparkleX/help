@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>help</groupId>
-	<artifactId>spring-help</artifactId>
+	<artifactId>help</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -210,6 +210,16 @@
 			    <artifactId>spring-boot-starter-webflux</artifactId>
 			    <version>${springboot.version}</version>
 			</dependency>
+			<dependency>
+			    <groupId>redis.clients</groupId>
+			    <artifactId>jedis</artifactId>
+			    <version>3.0.1</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.springframework.boot</groupId>
+			    <artifactId>spring-boot-starter-data-redis</artifactId>
+			    <version>${springboot.version}</version>
+			</dependency>
 			
 		</dependencies>
 
@@ -255,5 +265,6 @@
 		<module>dynamic-query</module>
 		<module>http2</module>
 		<module>nosql</module>
+		<module>redis</module>
 	</modules>
 </project>

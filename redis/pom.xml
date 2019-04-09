@@ -5,11 +5,11 @@
     <artifactId>help</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>help-feign</groupId>
-  <artifactId>help-feign</artifactId>
+  <artifactId>redis</artifactId>
   <packaging>pom</packaging>
   <modules>
-  	<module>help-openfeign</module>
-  	<module>feign-spring</module>
+  	<module>redis-jedis</module>
+  	<module>spring-redis</module>
+  	<module>redis-spring</module>
   </modules>
 </project>

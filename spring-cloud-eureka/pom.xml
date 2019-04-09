@@ -7,7 +7,7 @@
 	<packaging>pom</packaging>
 	<parent>
 		<groupId>help</groupId>
-		<artifactId>spring-help</artifactId>
+		<artifactId>help</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<modules>
