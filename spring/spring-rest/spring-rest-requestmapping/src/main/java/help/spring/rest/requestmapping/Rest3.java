@@ -1,4 +1,4 @@
-package help;
+package help.spring.rest.requestmapping;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

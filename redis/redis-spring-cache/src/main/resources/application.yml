@@ -1,0 +1,22 @@
+spring:
+  redis:
+    host: 172.29.190.162
+    port: 6379
+    database: 0
+    timeout: 0
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0     
+  cache:
+    type: redis      
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;DatabaseName=TEST1
+    username: sa
+    password: 12345678
+    initialization-mode: always
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    

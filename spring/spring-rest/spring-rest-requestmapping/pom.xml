@@ -2,14 +2,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>help</groupId>
-    <artifactId>help</artifactId>
+    <artifactId>spring-rest</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>spring</artifactId>
-  <packaging>pom</packaging>
-  <modules>
-  	<module>spring-core</module>
-  	<module>spring-jdbc</module>
-  	<module>spring-rest</module>
-  </modules>
+  <artifactId>spring-rest-requestmapping</artifactId>
 </project>

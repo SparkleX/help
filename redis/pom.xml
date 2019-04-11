@@ -11,5 +11,6 @@
   	<module>redis-jedis</module>
   	<module>spring-redis</module>
   	<module>redis-spring</module>
+  	<module>redis-spring-cache</module>
   </modules>
 </project>
