@@ -3,7 +3,6 @@ spring:
     host: 172.29.190.162
     port: 6379
     database: 0
-    timeout: 0
     pool:
       max-active: 8
       max-wait: -1

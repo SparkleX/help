@@ -14,19 +14,19 @@ public class PersonService  {
     @Autowired
     private PersonRepository repoPerson;
     
-    @Cacheable(key="'person'")
-    public Person getUserById(String i) {
-        return repoPerson.findById(i).get();
+    @Cacheable(key="#id")
+    public Person getUserById(String id) {
+        return repoPerson.findById(id).get();
     }
 
-    @CachePut(key="'person'")
+    @CachePut(key="#user.id")
     public Person update(Person user) {
         return repoPerson.save(user);
     }
  
-    @CacheEvict(key="'person'")
-    public String del(String i) {
-        repoPerson.deleteById(i);
+    @CacheEvict(key="#id")
+    public String remove(String id) {
+        repoPerson.deleteById(id);
         return "deleted";
     }
 }
