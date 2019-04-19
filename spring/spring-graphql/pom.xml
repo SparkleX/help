@@ -2,16 +2,12 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>help</groupId>
-    <artifactId>help</artifactId>
+    <artifactId>spring</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>spring</artifactId>
+  <artifactId>spring-graphql</artifactId>
   <packaging>pom</packaging>
   <modules>
-  	<module>spring-core</module>
-  	<module>spring-jdbc</module>
-  	<module>spring-rest</module>
-  	<module>spring-i18n</module>
-  	<module>spring-graphql</module>
+  	<module>spring-graphql-simple</module>
   </modules>
 </project>
