@@ -2,15 +2,14 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>help</groupId>
-    <artifactId>help</artifactId>
+    <artifactId>spring-i18n</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>spring</artifactId>
-  <packaging>pom</packaging>
-  <modules>
-  	<module>spring-core</module>
-  	<module>spring-jdbc</module>
-  	<module>spring-rest</module>
-  	<module>spring-i18n</module>
-  </modules>
+  <artifactId>spring-i18n-properties</artifactId>
+  <dependencies>
+ 	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-web</artifactId>
+	</dependency>
+  </dependencies>
 </project>
