@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import spring.jdbc.repository.domain.Customer;
 import spring.jdbc.repository.domain.ItemWarehouse;
+import spring.jdbc.repository.repository.CustomerRepo;
+import spring.jdbc.repository.repository.ItemWarehouseRepo;
 
 @Service
 public class SampleService 
@@ -23,7 +25,7 @@ public class SampleService
 	{
 		Customer entity = new Customer();
 		entity.setName("123");
-		repoCustomer.save(entity);
+		repoCustomer.add(entity);
 		return repoCustomer.findById(id).get();
 	}
 
