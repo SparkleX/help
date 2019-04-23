@@ -3,21 +3,34 @@ package spring.jdbc.repository;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import spring.jdbc.repository.domain.Customer;
+import spring.jdbc.repository.domain.ItemWarehouse;
 
 @Service
 public class SampleService 
 {
-
 	@Autowired
-	JdbcTemplate jdbcTemplate;
-	public String get(int id) 
+	CustomerRepo repoCustomer;
+	@Autowired
+	ItemWarehouseRepo repoItemWarehouse;
+//	@Autowired
+//	JdbcTemplate jdbcTemplate;
+	@Transactional
+	public Customer get(int id) 
 	{
-		String sql = "SELECT * FROM CUSTOMER WHERE ID = ?";
-		List<Customer> customer = jdbcTemplate.query(sql, new Object[] { id },new BeanPropertyRowMapper(Customer.class));
-	    return customer.get(0).getName();
+		Customer entity = new Customer();
+		entity.setName("123");
+		repoCustomer.save(entity);
+		return repoCustomer.findById(id).get();
 	}
 
+	public List<Customer> findAll() {
+		return repoCustomer.findAllCustomers();
+	}
+	public Iterable<ItemWarehouse> findAllItemWarehouse() {
+		return repoItemWarehouse.findAll();
+	}
 }
