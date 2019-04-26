@@ -206,23 +206,43 @@
 				<version>${cassandra.version}</version>
 			</dependency>
 			<dependency>
-			    <groupId>org.springframework.boot</groupId>
-			    <artifactId>spring-boot-starter-webflux</artifactId>
-			    <version>${springboot.version}</version>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-webflux</artifactId>
+				<version>${springboot.version}</version>
 			</dependency>
 			<dependency>
-			    <groupId>redis.clients</groupId>
-			    <artifactId>jedis</artifactId>
-			    <version>3.0.1</version>
+				<groupId>redis.clients</groupId>
+				<artifactId>jedis</artifactId>
+				<version>3.0.1</version>
 			</dependency>
 			<dependency>
-			    <groupId>org.springframework.boot</groupId>
-			    <artifactId>spring-boot-starter-data-redis</artifactId>
-			    <version>${springboot.version}</version>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-redis</artifactId>
+				<version>${springboot.version}</version>
 			</dependency>
-			
+			<dependency>
+				<groupId>org.mybatis.spring.boot</groupId>
+				<artifactId>mybatis-spring-boot-starter</artifactId>
+				<version>2.0.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>3.5.1</version>
+			</dependency>
+			<dependency>
+				<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
+				<version>1.4.199</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis.spring.boot</groupId>
+				<artifactId>mybatis-spring-boot-starter-test</artifactId>
+				<version>2.0.1</version>
+				<scope>test</scope>
+			</dependency>
 		</dependencies>
-
 	</dependencyManagement>
 	<modules>
 		<module>jpa-hibernate-nativequery</module>

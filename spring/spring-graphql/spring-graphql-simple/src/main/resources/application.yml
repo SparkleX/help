@@ -9,9 +9,10 @@ spring:
       ddl-auto: update
   datasource:
     continue-on-error: true
-    url: jdbc:mysql://1.1.1.101:3306/test?useSSL=false
-    username: root
-    password: 1234
+    url: jdbc:sqlserver://localhost;user=sa;password=12345678;databaseName=TEST;
+ #   url: jdbc:mysql://1.1.1.101:3306/test?useSSL=false
+ #   username: root
+ #   password: 1234
 graphql:
   servlet:
     mapping: /resources/graphql
