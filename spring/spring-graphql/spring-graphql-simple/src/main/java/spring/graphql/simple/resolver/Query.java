@@ -4,7 +4,6 @@ package spring.graphql.simple.resolver;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
@@ -22,10 +21,8 @@ import spring.graphql.simple.repo.BookRepository;
 @AllArgsConstructor
 public class Query implements GraphQLQueryResolver {
 
-	@Autowired
     private AuthorRepository authorRepository;
 
-    @Autowired
     private BookRepository bookRepository;
 
     public Author findOneAuthor(Long id) {
