@@ -28,4 +28,5 @@ public interface UserMapper extends MapperBase<User, Integer>
     @Select("select * from users where ${column} = #{value}")
     List<User> findByColumn(@Param("column")String column, @Param("value")Object value);
     
+    
 }

@@ -18,7 +18,7 @@ import help.mybatis.repo.UserMapper;
 
 @RunWith(SpringRunner.class)
 @MybatisTest
-public class RepoTest
+public class CrudTest
 {
     @Autowired
     private UserMapper userMapper;
