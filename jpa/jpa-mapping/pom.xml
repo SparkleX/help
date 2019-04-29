@@ -2,19 +2,13 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>help</groupId>
-    <artifactId>help</artifactId>
+    <artifactId>jpa</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>jpa</artifactId>
+  <artifactId>jpa-mapping</artifactId>
   <packaging>pom</packaging>
   <modules>
-  	<module>quick-jpa-impl</module>
-  	<module>jpa-hibernate</module>
-  	<module>jpa-eclipselink</module>
-  	<module>jpa-eclipselink-tenant</module>
-  	<module>jpa-rest-service</module>
-  	<module>jpa-user-field</module>
-  	<module>jpa-eclipselink-hack</module>
-  	<module>jpa-mapping</module>
+  	<module>jpa-mapping-one2one</module>
+  	<module>jpa-mapping-one2many</module>
   </modules>
 </project>
