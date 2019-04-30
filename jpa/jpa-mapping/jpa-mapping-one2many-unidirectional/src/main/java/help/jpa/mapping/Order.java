@@ -1,16 +1,12 @@
 package help.jpa.mapping;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity(name="ORDR")
 public class Order
@@ -32,16 +28,17 @@ public class Order
 		this.memo = memo;
 	}
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="order")
-    Collection<OrderDetail> detail;
-	public Collection<OrderDetail> getDetail() {
+	@OneToMany
+	@JoinColumn(name = "order_id")
+    List<OrderDetail> detail;
+	public List<OrderDetail> getDetail() {
 		if(detail==null)
 		{
 			detail = new ArrayList<>();
 		}
 		return detail;
 	}
-	public void setDetail(Collection<OrderDetail> detail) {
+	public void setDetail(List<OrderDetail> detail) {
 		this.detail = detail;
 	}
 

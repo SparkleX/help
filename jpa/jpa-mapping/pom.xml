@@ -10,5 +10,8 @@
   <modules>
   	<module>jpa-mapping-one2one</module>
   	<module>jpa-mapping-one2many</module>
+  	<module>jpa-mapping-one2one-refcol</module>
+  	<module>jpa-mapping-one2many-unidirectional</module>
+  	<module>jpa-mapping-one2many-compositepk</module>
   </modules>
 </project>
