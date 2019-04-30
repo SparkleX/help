@@ -31,9 +31,7 @@ public class MappingTest
 	{
 		OrderDetailKey key = new OrderDetailKey();
 		key.setLineNum(1);
-		Order order = new Order();
-		order.setId(1);
-		key.setOrder(order);
+		key.setOrder(1);
 		OrderDetail oOrderDetail = em.find(OrderDetail.class, key);
 		Order order2 = oOrderDetail.getOrder();
 		System.out.println(order2.getMemo());

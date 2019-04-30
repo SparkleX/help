@@ -17,15 +17,15 @@ public class OrderDetailKey implements Serializable
 		this.lineNum = lineNum;
 	}
 
-	public Order getOrder() {
+	Integer lineNum;
+	
+   	public Integer getOrder() {
 		return order;
 	}
 
-	public void setOrder(Order order) {
+	public void setOrder(Integer order) {
 		this.order = order;
 	}
 
-	Integer lineNum;
-	
-   	Order order;
+	Integer order;
 }
