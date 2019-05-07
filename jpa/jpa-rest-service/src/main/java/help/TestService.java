@@ -19,10 +19,21 @@ public class TestService
 	
 	
 	@GetMapping(path="/test")
-	public List<SalesOrder> test()
+	public SalesOrder test()
 	{
-		List<SalesOrder> list = orderService.test();
-		return list;
+		try
+		{
+			SalesOrder list = orderService.test();
+			Integer a = list.getId();
+			return list;
+			
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+			return null;
+		}
+		
 	}
 	
 	

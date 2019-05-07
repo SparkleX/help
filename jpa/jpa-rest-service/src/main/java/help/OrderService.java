@@ -1,6 +1,7 @@
 package help;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 
@@ -11,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import help.model.BusinessPartner;
 import help.model.Item;
 import help.model.SalesOrder;
-import help.model.SalesOrderDetail;
 import help.repo.RepoOITM;
 import help.repo.RepoSalesOrder;
 
@@ -22,9 +22,25 @@ public class OrderService
 	RepoOITM repoOITM;
 	
 	@Transactional
-	public List<SalesOrder> test()
+	public SalesOrder test()
 	{
-		return repoSalesOrder.findAll();
+		try
+		{
+			Optional<SalesOrder> list = repoSalesOrder.findById(1);
+			if(list.isPresent())
+			{
+				System.out.println("123");
+				return list.get();
+			}
+			
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+			return null;
+		}
+		return null;
+		
 	}
 	
 	@Autowired
