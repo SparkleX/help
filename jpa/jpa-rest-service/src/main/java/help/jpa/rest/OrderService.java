@@ -1,4 +1,4 @@
-package help;
+package help.jpa.rest;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,11 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import help.model.BusinessPartner;
-import help.model.Item;
-import help.model.SalesOrder;
-import help.repo.RepoOITM;
-import help.repo.RepoSalesOrder;
+import help.jpa.rest.model.BusinessPartner;
+import help.jpa.rest.model.Item;
+import help.jpa.rest.model.SalesOrder;
+import help.jpa.rest.repo.RepoOITM;
+import help.jpa.rest.repo.RepoSalesOrder;
 
 @Service
 public class OrderService 

@@ -1,4 +1,4 @@
-package help.model;
+package help.jpa.rest.model;
 
 import java.math.BigDecimal;
 import java.util.Collection;
@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import help.EntityIdResolver;
+import help.jpa.rest.EntityIdResolver;
 
 @Entity
 @Table(name = "ORDR")

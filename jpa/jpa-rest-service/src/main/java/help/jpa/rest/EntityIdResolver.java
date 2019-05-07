@@ -1,4 +1,4 @@
-package help;
+package help.jpa.rest;
 
 import javax.persistence.EntityManager;
 

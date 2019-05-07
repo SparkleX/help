@@ -1,4 +1,4 @@
-package help;
+package help.jpa.rest;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import help.model.SalesOrder;
+import help.jpa.rest.model.SalesOrder;
 
 @RestController
 public class TestService 

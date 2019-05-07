@@ -1,4 +1,4 @@
-package help.repo;
+package help.jpa.rest.repo;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 
-import help.model.Item;
+import help.jpa.rest.model.Item;
 
 
 

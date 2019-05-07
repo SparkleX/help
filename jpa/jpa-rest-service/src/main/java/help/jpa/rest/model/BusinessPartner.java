@@ -1,4 +1,4 @@
-package help.model;
+package help.jpa.rest.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import help.EntityIdResolver;
+import help.jpa.rest.EntityIdResolver;
 
 @Entity
 @Table(name = "OCRD")

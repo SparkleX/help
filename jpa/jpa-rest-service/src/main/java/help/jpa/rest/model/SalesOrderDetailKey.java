@@ -1,4 +1,4 @@
-package help.model;
+package help.jpa.rest.model;
 
 import java.io.Serializable;
 
