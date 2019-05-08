@@ -45,9 +45,10 @@ public class JpaTest {
 		CriteriaQuery<SalesOrder> query = cr.createQuery(SalesOrder.class);
 		Root<SalesOrder> root = query.from(SalesOrder.class);
 		query.select(root);
-		Predicate restrictions = cr.conjunction();
-		restrictions  = cr.and(restrictions , cr.equal(root.get("businessPartner"), oBP));
-		query.where(restrictions);
+		//Predicate restrictions = cr.conjunction();
+		//restrictions  = cr.and(restrictions , cr.equal(root.get("businessPartner"), oBP));
+		//query.where(restrictions);
+		query.where(cr.equal(root.get("businessPartner"), oBP));
 		TypedQuery<SalesOrder> typedQuery = em.createQuery(query);
 		List<SalesOrder> orders = typedQuery.getResultList();
 		System.out.println(orders.size());
