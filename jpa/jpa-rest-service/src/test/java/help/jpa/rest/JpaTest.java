@@ -5,6 +5,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.*;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import help.jpa.rest.model.BusinessPartner;
+import help.jpa.rest.model.Item;
 import help.jpa.rest.model.SalesOrder;
 import help.jpa.rest.repo.RepoSalesOrder;
 import org.junit.Test;
@@ -40,18 +41,8 @@ public class JpaTest {
 	@Test
 	public void testQuery() throws Exception {
 		EntityManager em = entityManager.getEntityManager();
-		BusinessPartner oBP = em.find(BusinessPartner.class, 100);
-		CriteriaBuilder cr = em.getCriteriaBuilder();
-		CriteriaQuery<SalesOrder> query = cr.createQuery(SalesOrder.class);
-		Root<SalesOrder> root = query.from(SalesOrder.class);
-		query.select(root);
-		//Predicate restrictions = cr.conjunction();
-		//restrictions  = cr.and(restrictions , cr.equal(root.get("businessPartner"), oBP));
-		//query.where(restrictions);
-		query.where(cr.equal(root.get("businessPartner"), oBP));
-		TypedQuery<SalesOrder> typedQuery = em.createQuery(query);
-		List<SalesOrder> orders = typedQuery.getResultList();
-		System.out.println(orders.size());
+		List<Item> items = em.createQuery("from Item i where i.itemCode='1'").getResultList();
+		System.out.println(items.size());
 		
 	}
 }

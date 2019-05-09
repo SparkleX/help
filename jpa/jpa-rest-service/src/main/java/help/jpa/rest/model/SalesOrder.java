@@ -77,7 +77,7 @@ public class SalesOrder
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	//@MapsId("business_partner_id")
-	@JoinColumn(name="business_partner_id")
+	@JoinColumn(name="businessPartnerId")
 //	@Transient
 
 	

@@ -59,7 +59,7 @@ public class SalesOrderDetail
 
 	@Id
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="doc_id", referencedColumnName="id",nullable=false)
+	@JoinColumn(name="docId", referencedColumnName="id",nullable=false)
 	@JsonIdentityReference(alwaysAsId = true)
 	SalesOrder docId;
 	
@@ -68,7 +68,7 @@ public class SalesOrderDetail
 	
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="item_id")
+	@JoinColumn(name="itemId")
 	@JsonIdentityReference(alwaysAsId = true)
 	Item itemId;
 	
