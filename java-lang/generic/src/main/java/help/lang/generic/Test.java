@@ -11,5 +11,11 @@ public class Test {
         {
         	System.out.println(c);
         }
+        
+        genericType =  GenericTypeResolver.resolveTypeArguments(genericType[0], BoBase.class);
+        for(Class<?> c:genericType)
+        {
+        	System.out.println(c);
+        }
 	}
 }
