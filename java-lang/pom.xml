@@ -12,5 +12,6 @@
     <module>java-lambda</module>
     <module>log</module>
     <module>bean-reflect</module>
+    <module>generic</module>
   </modules>
 </project>

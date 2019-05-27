@@ -1,5 +1,5 @@
 spring:
   messages:
     basename: i18n/messages
-    cache-second: 3600
-    encoding: UTF-8
+#    cache-second: 3600
+#    encoding: UTF-8

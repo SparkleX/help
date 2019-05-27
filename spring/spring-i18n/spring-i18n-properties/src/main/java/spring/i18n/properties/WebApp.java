@@ -15,14 +15,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class WebApp {
 
     @Autowired
-    private MessageSource messageSource;
+    private MessageUtil messageSource;
 
     
 	@RequestMapping("/test")
 	public String test()
 	{
-		Locale locale = LocaleContextHolder.getLocale();
-		return messageSource.getMessage("welcome",null, "(---)",locale);
+		long from = System.currentTimeMillis();
+		/*for(int i =100000;i<=110000;i++)
+		{
+			messageSource.getMessage("string"+i);
+		}*/
+		long to = System.currentTimeMillis();
+		System.out.println(to-from);
+		return messageSource.getMessage("wel.come");
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(WebApp.class, args);
