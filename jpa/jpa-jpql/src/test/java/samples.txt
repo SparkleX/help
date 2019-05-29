@@ -1,0 +1,38 @@
+select o from User o
+select o from User o where id=?1
+SELECT c.name FROM Country AS c
+SELECT c.capital.name FROM Country AS c WHERE c.name = :name
+SELECT DISTINCT c.currency FROM Country AS c WHERE c.name LIKE 'I%'
+
+
+  TypedQuery<Country> query =
+      em.createQuery("SELECT c FROM Country c", Country.class);
+  List<Country> results = query.getResultList();
+
+TypedQuery<Object[]> query = em.createQuery(
+    "SELECT c.name, c.capital.name FROM Country AS c", Object[].class);
+List<Object[]> results = query.getResultList();
+for (Object[] result : results) {
+    System.out.println("Country: " + result[0] + ", Capital: " + result[1]);
+}
+
+
+SELECT NEW example.CountryAndCapital(c.name, c.capital.name)
+FROM Country AS c
+
+
+CriteriaQuery<Tuple> q = cb.createTupleQuery();
+Root<Country> c = q.from(Country.class);
+q.select(cb.tuple(c.get("name"), c.get("capital").get("name")));
+
+List<Tuple> results = em.createQuery(q).getResultList();
+for (Tuple t : results) {
+    System.out.println("Country: " + t.get(0)  + ", Capital: " + t.get(1));
+}
+
+CriteriaQuery<CountryAndCapital> q = cb.createQuery(CountryAndCapital.class);
+Root<Country> c = q.from(entityClass);
+q.select(cb.construct(CountryAndCapital.class,c.get("name"), c.get("capital").get("name")));
+List<CountryAndCapital> results = em.createQuery(q).getResultList();
+
+q.multiselect(c.get("name"), c.get("capital").get("name"));
