@@ -16,5 +16,6 @@
   	<module>jpa-user-field</module>
   	<module>jpa-eclipselink-hack</module>
   	<module>jpa-mapping</module>
+  	<module>jpa-jpql</module>
   </modules>
 </project>
