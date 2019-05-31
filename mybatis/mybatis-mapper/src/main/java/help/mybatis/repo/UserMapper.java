@@ -7,7 +7,8 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
-import help.mybatis.domain.User;
+import domain.User;
+
 
 public interface UserMapper extends MapperBase<User, Integer>
 {
